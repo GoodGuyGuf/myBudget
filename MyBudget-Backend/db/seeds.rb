@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 budget_one = Budget.create(title: "March, 2020", bank: 3000)
+expense_one = Expense.create(name: "School loan", cost: "250", date: "March 30th", budget_id: 1)

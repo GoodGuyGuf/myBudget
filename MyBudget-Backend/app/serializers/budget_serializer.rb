@@ -1,4 +1,4 @@
 class BudgetSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :title, :bank
+  attributes :title, :bank, :expenses
 end

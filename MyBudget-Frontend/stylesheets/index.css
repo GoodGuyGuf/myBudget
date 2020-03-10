@@ -3,3 +3,19 @@ html {
     color: rgb(54, 54, 54);
     background-color: rgb(245, 245, 245);
 }
+
+#navBudgets{
+    cursor: pointer;
+}
+
+#navBudgets:hover{
+    color: #ff6b6b;
+}
+
+#navCreate{
+    cursor: pointer;
+}
+
+#navCreate:hover{
+    color: #ff6b6b;
+}

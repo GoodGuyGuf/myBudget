@@ -2,7 +2,7 @@ let budgetLink = document.getElementById("navBudgets");
 let numberOfBudgets = document.getElementById("navInfo");
 
 budgetLink.addEventListener("click", function(e){
-    allBudgets();
+    returnToMe()
 }, {once : true});
 
 function allBudgets(){
@@ -15,6 +15,16 @@ function allBudgets(){
             new Budget(obj);
         })
     })
+}
+
+allBudgets();
+
+function returnToMe(){
+    for (array of Budget.all){
+    let h1 = document.createElement("h1");
+    h1.textContent = `Budget for: ${array.title} - Balance: $${array.bank}`;
+    document.body.appendChild(h1);
+    }
 }
 
 

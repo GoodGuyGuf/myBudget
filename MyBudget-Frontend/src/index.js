@@ -24,6 +24,10 @@ function returnToMe(){
     let h1 = document.createElement("h1");
     h1.textContent = `Budget for: ${array.title} - Balance: $${array.bank}`;
     document.body.appendChild(h1);
+
+    let h3 = document.createElement("h3");
+    h3.textContent = `Expense: Name: ${array.expenses[0].name} - $${array.expenses[0].cost} - Due: ${array.expenses[0].date}`;
+    document.body.appendChild(h3);
     }
 }
 

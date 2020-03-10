@@ -1,4 +1,5 @@
 let budgetLink = document.getElementById("navBudgets");
+let numberOfBudgets = document.getElementById("navInfo");
 
 budgetLink.addEventListener("click", function(e){
     oneBudget();
@@ -15,10 +16,14 @@ function oneBudget(){
 
 function returnToMe(fetched){
     let h1 = document.createElement("h1");
-    h1.textContent = `${fetched.data.attributes.title}: ${fetched.data.attributes.bank}`;
+    h1.textContent = `Budget for: ${fetched.data.attributes.title} - Balance: $${fetched.data.attributes.bank}`;
     document.body.appendChild(h1);
 
-    let h3 = document.createElement("h3");
-    h3.textContent = `Expense 1: Name: ${fetched.data.attributes.expenses[0].name} - Cost: ${fetched.data.attributes.expenses[0].cost} - Due Date: ${fetched.data.attributes.expenses[0].date}`;
-    document.body.appendChild(h3);
+    fetched.data.attributes.expenses.forEach(function(expense){
+        let h3 = document.createElement("h3");
+        h3.textContent = `Expense ${expense.id}: Name: ${expense.name} - Cost: ${expense.cost} - Due Date: ${expense.date}`;
+        document.body.appendChild(h3);
+    })
+
+    numberOfBudgets.innerText = `Number of Budgets: ${fetched.data.attributes.expenses.length}`
 }

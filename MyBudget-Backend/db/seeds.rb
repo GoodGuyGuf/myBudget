@@ -6,4 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-budget_one = Budget.create(title: "March, 2020",bank: 3000)
+budget_one = Budget.create(title: "March, 2020", bank: 3000)

@@ -10,7 +10,7 @@ class BudgetsController < ApplicationController
 
     def show
         budget = Budget.find_by_id(params[:id])
-        render json: BudgetSerializer.new(budget).to_serialized_json
+        render json: BudgetSerializer.new(budget)
     end
 
 end

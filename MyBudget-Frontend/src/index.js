@@ -25,5 +25,5 @@ function returnToMe(fetched){
         document.body.appendChild(h3);
     })
 
-    numberOfBudgets.innerText = `Number of Budgets: ${fetched.data.attributes.expenses.length}`
+    numberOfBudgets.innerText += ` ${fetched.data.attributes.expenses.length}`;
 }

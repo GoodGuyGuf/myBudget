@@ -25,7 +25,7 @@ function appendElements(){ //grabs each Budget.all and appends to DOM
     h1.textContent = `Budget for: ${array.title} - Balance: $${array.bank}`;
     document.body.appendChild(h1);
 
-    appendExpenses(array) // array is an instance of a budget
+    appendExpenses(array)
 }
 }
 
@@ -52,4 +52,3 @@ function appendExpenses(array){ // array is an instance of a budget
 
 }
 
-// for each expense we use a for loop.

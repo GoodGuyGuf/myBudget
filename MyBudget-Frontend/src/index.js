@@ -31,21 +31,11 @@ function appendExpenses(array){
         let h3 = document.createElement("h3");
         let h4 = document.createElement("h4")
         h3.textContent = `Expense: Name: ${array.expenses[0].name} - $${array.expenses[0].cost} - Due: ${array.expenses[0].date}`;
-        h4.textContent = `Remaining balance: ${reducedValue(array)}`;
+        h4.textContent = `Remaining balance: ${array.expenses.reduce(function(total, element){return total - element.cost}, array.bank)}`;
         document.body.appendChild(h3);
         document.body.appendChild(h4);
         createExpenseForm(array.id);
     } else {
         createExpenseForm(array.id);
     }
-}
-
-function reducedValue(array){
-   let foundBudget = Budget.all.find(element => element.id = array.budgetId)
-
-   if (foundBudget.expenses > 1){
-    //reduce the elements
-   } else if (foundBudget.expenses <= 1) {
-    //reduce the budget and one expense
-   }
 }

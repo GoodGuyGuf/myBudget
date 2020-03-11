@@ -18,24 +18,32 @@ function allBudgets(){ //fetches the budgets and makes objects out of the respon
 
 function appendElements(){ //grabs each Budget.all and appends to DOM
     for (array of Budget.all){
+
     let h1 = document.createElement("h1");
+
     h1.id = `Budget${array.id}`
     h1.textContent = `Budget for: ${array.title} - Balance: $${array.bank}`;
     document.body.appendChild(h1);
-    appendExpenses(array)
+
+    appendExpenses(array) // array is an instance of a budget
 }
 }
 
-function appendExpenses(array){
-    if (array.expenses.length >= 1){
+function appendExpenses(array){ // array is an instance of a budget
+
+    for (let i = 0; i < array.expenses.length; i++){
         let h3 = document.createElement("h3");
-        let h4 = document.createElement("h4")
-        h3.textContent = `Expense: Name: ${array.expenses[0].name} - $${array.expenses[0].cost} - Due: ${array.expenses[0].date}`;
-        h4.textContent = `Remaining balance: ${array.expenses.reduce(function(total, element){return total - element.cost}, array.bank)}`;
+
+        h3.textContent = `Expense: Name: ${array.expenses[i].name} - $${array.expenses[i].cost} - Due: ${array.expenses[i].date}`;
+
         document.body.appendChild(h3);
-        document.body.appendChild(h4);
-        createExpenseForm(array.id);
-    } else {
-        createExpenseForm(array.id);
     }
+    let h4 = document.createElement("h4");
+    
+    h4.textContent = `Remaining balance: $${array.expenses.reduce(function(total, element){return total - element.cost}, array.bank)}`;
+    createExpenseForm(array.id);
+    document.body.appendChild(h4);
+
 }
+
+// for each expense we use a for loop.

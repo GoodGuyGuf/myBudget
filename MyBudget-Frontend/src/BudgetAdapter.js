@@ -18,11 +18,21 @@ class BudgetAdapter{
         return response.json()
     })
     .then(function(json){
-        new Budget(json)
+        let newInstance = new Budget(json);
+        addToDom(newInstance)
     })
     .catch(function(error) {
         alert("Fetch has gone through. Something else has gone wrong.");
         console.log(error.message);
       });
     }
+
+}
+
+function addToDom(object) {
+    let newH1 = document.createElement("h1");
+    newH1.id = `Budget${object.id}`;
+    newH1.textContent = `Budget for: ${object.title} - Balance: $${object.bank}`;
+    document.body.appendChild(newH1);
+    createExpenseForm(object.budgetId);
 }

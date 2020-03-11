@@ -22,12 +22,19 @@ function appendElements(){ //grabs each Budget.all and appends to DOM
     h1.id = `Budget${array.id}`
     h1.textContent = `Budget for: ${array.title} - Balance: $${array.bank}`;
     document.body.appendChild(h1);
+    appendExpenses(array)
+}
+}
 
-    let h3 = document.createElement("h3");
-    h3.textContent = `Expense: Name: ${array.expenses[0].name} - $${array.expenses[0].cost} - Due: ${array.expenses[0].date}`;
-    document.body.appendChild(h3);
-    createExpenseForm(array.id);
+function appendExpenses(array){
+    if (array.expenses.length > 1){
+        let h3 = document.createElement("h3");
+        h3.textContent = `Expense: Name: ${array.expenses[0].name} - $${array.expenses[0].cost} - Due: ${array.expenses[0].date}`;
+        document.body.appendChild(h3);
+        createExpenseForm(array.id);
     // if there are no expenses, the budget will not render.
+    } else {
+        createExpenseForm(array.id);
     }
 }
 

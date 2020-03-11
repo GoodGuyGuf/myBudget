@@ -13,6 +13,7 @@ function allBudgets(){ //fetches the budgets and makes objects out of the respon
             new Budget(obj);
         })
         appendElements()
+        numberOfBudgets.innerText = `Number of Budgets: ${Budget.all.length}`;
     })
 }
 

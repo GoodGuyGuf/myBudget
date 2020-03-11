@@ -1,11 +1,9 @@
 let budgetLink = document.getElementById("navBudgets");
 let numberOfBudgets = document.getElementById("navInfo");
 
-budgetLink.addEventListener("click", function(){
-    appendElements()
-}, {once : true});
+allBudgets(); // we call the fetch
 
-function allBudgets(){
+function allBudgets(){ //fetches the budgets and makes objects out of the response
     fetch("http://localhost:3000/budgets")
     .then(function(response){
         return response.json()
@@ -14,12 +12,11 @@ function allBudgets(){
             let obj = {...budget.attributes, id: budget.id};
             new Budget(obj);
         })
+        appendElements()
     })
 }
 
-allBudgets();
-
-function appendElements(){
+function appendElements(){ //grabs each Budget.all and appends to DOM
     for (array of Budget.all){
     let h1 = document.createElement("h1");
     h1.id = `Budget${array.id}`
@@ -34,11 +31,5 @@ function appendElements(){
     }
 }
 
-let form = document.getElementById("budgetForm");
-let create = document.getElementById("navCreate")
-form.style.display ="none"
 
-create.addEventListener("click", function(){
-    form.style.display = ""
-})
 

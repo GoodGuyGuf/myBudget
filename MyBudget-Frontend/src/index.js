@@ -29,11 +29,11 @@ function appendElements(){
     let h3 = document.createElement("h3");
     h3.textContent = `Expense: Name: ${array.expenses[0].name} - $${array.expenses[0].cost} - Due: ${array.expenses[0].date}`;
     document.body.appendChild(h3);
-    createForm(array.id);
+    createExpenseForm(array.id);
     }
 }
 
-function createForm(id){
+function createExpenseForm(id){
     let formDiv = document.createElement("div")
     formDiv.id = "expenseForm"
     formDiv.innerHTML = `<div id="form">

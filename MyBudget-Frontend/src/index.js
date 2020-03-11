@@ -33,21 +33,11 @@ function appendElements(){
     }
 }
 
-function createExpenseForm(id){
-    let formDiv = document.createElement("div")
-    formDiv.id = "expenseForm"
-    formDiv.innerHTML = `<div id="form">
-    <form action="http://localhost:3000/budgets" method="POST">
-        <label>Name: </label>
-        <input id="name${id}" type="text" name="expense[name]" placeholder="Name">
-        <label>Cost: </label>
-        <input id="cost${id}" type="number" name="expense[cost]" placeholder="Cost">
-        <label>Date: </label>
-        <input id="date${id}" type="text" name="expense[date]" placeholder="Date">
-        <input type="hidden" name="expense[budget_id]" value="${id}">
-      <button id='submit' type='button'>Submit</button>
-    </form>
-  </div>`
-  document.body.appendChild(formDiv)
-}
+let form = document.getElementById("budgetForm");
+let create = document.getElementById("navCreate")
+form.style.display ="none"
+
+create.addEventListener("click", function(){
+    form.style.display = ""
+})
 

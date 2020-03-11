@@ -10,5 +10,5 @@ class Budget {
 
         Budget.all.push(this)
     }
-
+    
 }

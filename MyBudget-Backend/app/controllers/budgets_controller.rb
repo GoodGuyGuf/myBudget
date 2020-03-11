@@ -11,7 +11,7 @@ class BudgetsController < ApplicationController
 
     def create
         budget = Budget.create(budget_params)
-        redirect to budget_path(budget)
+        redirect_to budget_path(budget)
     end
 
     def show

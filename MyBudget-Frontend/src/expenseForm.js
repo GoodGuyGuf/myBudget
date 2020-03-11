@@ -4,6 +4,7 @@ function createExpenseForm(id){
     formDiv.innerHTML = `<div id="form">
 
     <form action="http://localhost:3000/budgets" method="POST">
+        <h3>New Expense: </h3>
         <label>Name: </label>
         <input id="name${id}" type="text" name="expense[name]" placeholder="Name">
 

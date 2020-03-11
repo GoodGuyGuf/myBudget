@@ -37,5 +37,10 @@ function expenseAddToDom(object) {
 
     li.textContent = `Expense: Name: ${object.name} - $${object.cost} - Due: ${object.date}`;
     budget.appendChild(li);
-    remaining.innerHTML = `$${remainingValue - object.cost}`
+
+    if (remainingValue === 0){
+        remaining.innerHTML = "$0"
+    } else {
+        remaining.innerHTML = `$${remainingValue - object.cost}`
+    }
 }

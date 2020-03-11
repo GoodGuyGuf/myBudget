@@ -30,6 +30,7 @@ function appendElements(){
     h3.textContent = `Expense: Name: ${array.expenses[0].name} - $${array.expenses[0].cost} - Due: ${array.expenses[0].date}`;
     document.body.appendChild(h3);
     createExpenseForm(array.id);
+    // if there are no expenses, the budget will not render.
     }
 }
 

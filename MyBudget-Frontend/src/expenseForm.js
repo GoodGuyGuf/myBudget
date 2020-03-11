@@ -10,11 +10,24 @@ function createExpenseForm(id){
         <label>Date: </label>
         <input id="date${id}" type="text" name="expense[date]" placeholder="Date">
         <input type="hidden" name="expense[budget_id]" value="${id}">
-      <button id='submit' type='button'>Submit</button>
+      <button class='submit${id}' type='button'>Submit</button>
     </form>
   </div>`
   document.body.appendChild(formDiv)
+  expenseFetch(id)
 }
+
+function expenseFetch(id){
+  let expenseSubmit = document.getElementById(`submit${id}`);
+    expenseSubmit.addEventListener("click", function(){
+    let expenseName = document.querySelector(`#name${id}`).value
+    let expenseCost = document.querySelector(`#cost${id}`).value
+    let expenseDate = document.querySelector(`#date${id}`).value
+    let expenseObject = {name: expenseName, cost: expenseCost, date: expenseDate}
+    ExpenseAdapter.newBudget(expenseObject)
+    })
+  }
+
 
 
 // we grab the element by the submit button

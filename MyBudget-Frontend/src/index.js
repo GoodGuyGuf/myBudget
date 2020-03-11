@@ -39,18 +39,15 @@ function createForm(id){
     formDiv.innerHTML = `<div id="form">
     <form action="http://localhost:3000/budgets" method="POST">
         <label>Name: </label>
-        <input type="text" name="expense[name]" placeholder="Name">
+        <input id="name${id}" type="text" name="expense[name]" placeholder="Name">
         <label>Cost: </label>
-        <input type="number" name="expense[cost]" placeholder="Cost">
+        <input id="cost${id}" type="number" name="expense[cost]" placeholder="Cost">
         <label>Date: </label>
-        <input type="text" name="expense[date]" placeholder="Date">
+        <input id="date${id}" type="text" name="expense[date]" placeholder="Date">
         <input type="hidden" name="expense[budget_id]" value="${id}">
-      <input id='submit' type='submit' value='Submit'>
+      <button id='submit' type='button'>Submit</button>
     </form>
   </div>`
   document.body.appendChild(formDiv)
 }
-
-
-
 

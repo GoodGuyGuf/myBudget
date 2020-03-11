@@ -18,8 +18,8 @@ class BudgetAdapter{
         return response.json()
     })
     .then(function(json){
-        let newInstance = new Budget(json);
-        addToDom(newInstance)
+        new Budget(json);
+        addToDom(json.data.attributes)
     })
     .catch(function(error) {
         alert("Fetch has gone through. Something else has gone wrong.");

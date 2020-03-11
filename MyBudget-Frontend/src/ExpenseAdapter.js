@@ -18,11 +18,18 @@ class ExpenseAdapter{
         return response.json()
     })
     .then(function(json){
-        new Expense (json)
+        new Expense (json);
+        expenseAddToDom(json)
     })
     .catch(function(error) {
         alert("Fetch has gone through. Something else has gone wrong.");
         console.log(error.message);
       });
     }
+}
+
+function expenseAddToDom(object) {
+    let h3 = document.createElement("h3");
+    h3.textContent = `Expense: Name: ${object.name} - $${object.cost} - Due: ${object.date}`;
+    document.body.appendChild(h3);
 }

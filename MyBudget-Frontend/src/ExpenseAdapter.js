@@ -29,7 +29,13 @@ class ExpenseAdapter{
 }
 
 function expenseAddToDom(object) {
-    let h3 = document.createElement("h3");
-    h3.textContent = `Expense: Name: ${object.name} - $${object.cost} - Due: ${object.date}`;
-    document.body.appendChild(h3);
+
+    let budget = document.getElementById(`expenses${object.budget_id}`)
+    let remaining = document.getElementById(`remainingValue${object.budget_id}`)
+    let remainingValue = parseInt(remaining.innerText.slice(1))
+    let li = document.createElement("li");
+
+    li.textContent = `Expense: Name: ${object.name} - $${object.cost} - Due: ${object.date}`;
+    budget.appendChild(li);
+    remaining.innerHTML = `Remaining balance: $${remainingValue - object.cost}`
 }

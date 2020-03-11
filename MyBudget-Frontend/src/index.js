@@ -30,19 +30,25 @@ function appendElements(){ //grabs each Budget.all and appends to DOM
 }
 
 function appendExpenses(array){ // array is an instance of a budget
-
+    let ul = document.createElement("ul");
+    ul.id =`expenses${array.id}`
+    document.body.appendChild(ul)
     for (let i = 0; i < array.expenses.length; i++){
-        let h3 = document.createElement("h3");
+        let li = document.createElement("li");
+        
+        li.textContent = `Expense: Name: ${array.expenses[i].name} - $${array.expenses[i].cost} - Due: ${array.expenses[i].date}`;
 
-        h3.textContent = `Expense: Name: ${array.expenses[i].name} - $${array.expenses[i].cost} - Due: ${array.expenses[i].date}`;
-
-        document.body.appendChild(h3);
+        ul.appendChild(li);
     }
     let h4 = document.createElement("h4");
-    
-    h4.textContent = `Remaining balance: $${array.expenses.reduce(function(total, element){return total - element.cost}, array.bank)}`;
+    let h5 = document.createElement("h4");
+    h5.id=`remainingValue${array.id}`
+
+    h4.textContent = "Remaining balance:";
+    h5.textContent = `$${array.expenses.reduce(function(total, element){return total - element.cost}, array.bank)}`
     createExpenseForm(array.id);
     document.body.appendChild(h4);
+    document.body.appendChild(h5);
 
 }
 

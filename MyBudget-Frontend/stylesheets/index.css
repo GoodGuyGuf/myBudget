@@ -5,12 +5,11 @@ html {
 }
 
 #budgetForm{
-    border: 2px solid #999999;
-    border-radius: 8px;
+    text-align: center;
     padding: 1%;
 }
 
-#budgetForm form input{
+input{
     font-size: 10px;
     padding: 7px;
     background-color: rgb(245, 245, 245);

@@ -15,11 +15,12 @@ class BudgetAdapter{
         }
     fetch("http://localhost:3000/budgets", fetchObject)
         .then(function(response) { 
-        return response.json()
+        return response.json();
     })
     .then(function(json){
         new Budget(json);
-        addToDom(json.data.attributes)
+        console.log(json.data);
+        addToDom(json.data.id, json.data.attributes);
     })
     .catch(function(error) {
         alert("Fetch has gone through. Something else has gone wrong.");
@@ -29,10 +30,20 @@ class BudgetAdapter{
 
 }
 
-function addToDom(object) {
+function addToDom(id, object) {
+    let div = document.createElement("div");
+    div.id=`BudgetDiv${id}`;
     let newH1 = document.createElement("h1");
-    newH1.id = `Budget${object.id}`;
+    newH1.id = `Budget${id}`;
     newH1.textContent = `Budget for: ${object.title} - Balance: $${object.bank}`;
-    document.body.appendChild(newH1);
-    createExpenseForm(object.budgetId);
+    let remaining = document.createElement("h4")
+    remaining.innerText="Remaining Balance:";
+    let remainingValue = document.createElement("h4")
+    remainingValue.innerText=`$${object.bank}`;
+
+    document.body.appendChild(div);
+    div.appendChild(newH1);
+    createExpenseForm(id);
+    document.body.appendChild(remaining);
+    document.body.appendChild(remainingValue);
 }

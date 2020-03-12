@@ -19,21 +19,25 @@ function allBudgets(){ //fetches the budgets and makes objects out of the respon
 
 function appendElements(){ //grabs each Budget.all and appends to DOM
     for (array of Budget.all){
-
+    
+    let div = document.createElement("div");
+    div.id=`BudgetDiv${array.id}`;
+    document.body.appendChild(div);
     let h1 = document.createElement("h1");
 
     h1.id = `Budget${array.id}`
     h1.textContent = `Budget for: ${array.title} - Balance: $${array.bank}`;
-    document.body.appendChild(h1);
+    div.appendChild(h1);
 
     appendExpenses(array)
 }
 }
 
 function appendExpenses(array){ // array is an instance of a budget
+    let div = document.getElementById(`BudgetDiv${array.id}`)
     let ul = document.createElement("ul");
     ul.id =`expenses${array.id}`
-    document.body.appendChild(ul)
+    div.appendChild(ul)
     for (let i = 0; i < array.expenses.length; i++){
         let li = document.createElement("li");
         

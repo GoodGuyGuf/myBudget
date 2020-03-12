@@ -19,6 +19,7 @@ class ExpenseAdapter{
     })
     .then(function(json){
         new Expense (json);
+        console.log(json)
         expenseAddToDom(json)
     })
     .catch(function(error) {
@@ -32,11 +33,19 @@ function expenseAddToDom(object) {
 
     let budget = document.getElementById(`expenses${object.budget_id}`)
     let remaining = document.getElementById(`remainingValue${object.budget_id}`)
+    let div = document.getElementById(`BudgetDiv${object.id}`)
     let remainingValue = parseInt(remaining.innerText.slice(1))
+    let ul = document.createElement("ul");
+    ul.id=`expenses${object.budget_id}`
     let li = document.createElement("li");
 
     li.textContent = `Expense: Name: ${object.name} - $${object.cost} - Due: ${object.date}`;
-    budget.appendChild(li);
+    if (document.querySelector(`#expenses${object.budget_id}`) === null){
+        div.appendChild(ul)
+    } else {
+        budget.appendChild(li)
+    }
+
 
     if (remainingValue === 0){
         remaining.innerHTML = "$0"

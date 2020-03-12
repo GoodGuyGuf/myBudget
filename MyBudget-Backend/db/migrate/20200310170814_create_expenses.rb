@@ -4,7 +4,7 @@ class CreateExpenses < ActiveRecord::Migration[6.0]
       t.string :name
 			t.float :cost
 			t.string :date
-			t.integer :budget_id
+      t.belongs_to :budget
     end
   end
 end

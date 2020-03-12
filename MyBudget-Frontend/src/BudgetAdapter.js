@@ -31,19 +31,26 @@ class BudgetAdapter{
 }
 
 function addToDom(id, object) {
+
+    let numberOfBudgets = document.getElementById("navInfo");
+    numberOfBudgets.innerText = `Number of Budgets: ${Budget.all.length}`;
     let div = document.createElement("div");
     div.id=`BudgetDiv${id}`;
+    
     let newH1 = document.createElement("h1");
     newH1.id = `Budget${id}`;
     newH1.textContent = `Budget for: ${object.title} - Balance: $${object.bank}`;
+
     let remaining = document.createElement("h4")
     remaining.innerText="Remaining Balance:";
+
     let remainingValue = document.createElement("h4")
     remainingValue.innerText=`$${object.bank}`;
 
     document.body.appendChild(div);
     div.appendChild(newH1);
     createExpenseForm(id);
+
     document.body.appendChild(remaining);
     document.body.appendChild(remainingValue);
 }

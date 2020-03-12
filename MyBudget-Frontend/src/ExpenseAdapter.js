@@ -42,6 +42,7 @@ function expenseAddToDom(object) {
     li.textContent = `Expense: Name: ${object.name} - $${object.cost} - Due: ${object.date}`;
     if (document.querySelector(`#expenses${object.budget_id}`) === null){
         div.appendChild(ul)
+        div.appendChild(li)
     } else {
         budget.appendChild(li)
     }

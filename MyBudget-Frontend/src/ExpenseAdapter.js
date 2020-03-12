@@ -33,7 +33,7 @@ function expenseAddToDom(object) {
 
     let budget = document.getElementById(`expenses${object.budget_id}`)
     let remaining = document.getElementById(`remainingValue${object.budget_id}`)
-    let div = document.getElementById(`BudgetDiv${object.id}`)
+    let div = document.getElementById(`BudgetDiv${object.budget_id}`)
     let remainingValue = parseInt(remaining.innerText.slice(1))
     let ul = document.createElement("ul");
     ul.id=`expenses${object.budget_id}`

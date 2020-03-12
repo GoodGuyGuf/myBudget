@@ -46,6 +46,7 @@ function addToDom(id, object) {
     remaining.innerText="Remaining Balance:";
 
     let remainingValue = document.createElement("h4")
+    remainingValue.id=`remainingValue${id}`;
     remainingValue.innerText=`$${object.bank}`;
 
     document.body.appendChild(div);

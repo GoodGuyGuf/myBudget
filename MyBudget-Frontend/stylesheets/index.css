@@ -1,7 +1,7 @@
 html {
     font-family: 'Lato', sans-serif;
-    color: rgb(54, 54, 54);
-    background-color: rgb(245, 245, 245);
+    color: rgb(58, 58, 58);
+    background-color: rgb(230, 230, 230);
 }
 
 #budgetForm{
@@ -27,6 +27,7 @@ input{
 }
 
 .BudgetDiv{
+    background-color: white;
     border: 2px solid #999999;
     border-radius: 8px;
     padding: 1%;

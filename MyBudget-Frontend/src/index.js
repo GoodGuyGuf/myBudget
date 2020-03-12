@@ -45,15 +45,15 @@ function appendExpenses(array){ // array is an instance of a budget
 
         ul.appendChild(li);
     }
+    createExpenseForm(array.id);
     let h4 = document.createElement("h4");
     let h5 = document.createElement("h4");
     h5.id=`remainingValue${array.id}`
 
     h4.textContent = "Remaining balance:";
     h5.textContent = `$${array.expenses.reduce(function(total, element){return total - element.cost}, array.bank)}`
-    createExpenseForm(array.id);
-    document.body.appendChild(h4);
-    document.body.appendChild(h5);
+    div.appendChild(h4);
+    div.appendChild(h5);
 
 }
 

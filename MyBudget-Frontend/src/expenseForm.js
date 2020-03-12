@@ -1,5 +1,6 @@
 function createExpenseForm(id){
     let formDiv = document.createElement("div")
+    let budgetDiv = document.getElementById(`BudgetDiv${id}`)
     formDiv.id = "expenseForm"
     formDiv.innerHTML = `<div id="form">
 
@@ -18,7 +19,7 @@ function createExpenseForm(id){
       <input id='submit' value='Submit' type='submit'>
     </form>
   </div>`
-  document.body.appendChild(formDiv)
+  budgetDiv.appendChild(formDiv)
   
   formDiv.addEventListener("submit", function(e){
     e.preventDefault();

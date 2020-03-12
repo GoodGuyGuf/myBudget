@@ -51,6 +51,6 @@ function addToDom(id, object) {
     div.appendChild(newH1);
     createExpenseForm(id);
 
-    document.body.appendChild(remaining);
-    document.body.appendChild(remainingValue);
+    div.appendChild(remaining);
+    div.appendChild(remainingValue);
 }

@@ -36,6 +36,7 @@ function addToDom(id, object) {
     numberOfBudgets.innerText = `Number of Budgets: ${Budget.all.length}`;
     let div = document.createElement("div");
     div.id=`BudgetDiv${id}`;
+    div.className="BudgetDiv"
     
     let newH1 = document.createElement("h1");
     newH1.id = `Budget${id}`;

@@ -22,6 +22,7 @@ function appendElements(){ //grabs each Budget.all and appends to DOM
     
     let div = document.createElement("div");
     div.id=`BudgetDiv${array.id}`;
+    div.className="BudgetDiv"
     document.body.appendChild(div);
     let h1 = document.createElement("h1");
 

@@ -19,7 +19,7 @@ class BudgetAdapter{
     })
     .then(function(json){
         new Budget(json);
-        console.log(json.data);
+        console.log(json);
         addToDom(json.data.id, json.data.attributes);
     })
     .catch(function(error) {

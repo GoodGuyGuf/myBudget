@@ -14,7 +14,25 @@
 
     <div id="nav">
       <span id="navInfo"></span>
-      <!--<span id="navUser">Username:</span>-->
+      <span id="navUser">Username:</span>
+    </div>
+
+    <div id="LogIn">
+      <form action="http://localhost:3000/users" method="POST">
+        <h2>Login</h2>
+        <input type="text" name="user[username]">
+        <input type="text" name="user[password]">
+        <input type="submit" name="submit" value="Submit">
+      </form>
+    </div>
+
+    <div id="SignUp">
+      <form action="http://localhost:3000/users" method="POST">
+        <h2>Sign up</h2>
+        <input type="text" name="user[username]" placeholder="Username">
+        <input type="text" name="user[password]" placeholder="Password">
+        <input type="submit" name="submit" value="Submit">
+        </form>
     </div>
 
     <div id="budgetForm">

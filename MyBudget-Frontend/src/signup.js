@@ -11,7 +11,14 @@ login.style.display = "none";
 let loggingIn = document.getElementById("loggingIn");
 let signinSelection = document.getElementById("signinSelection");
 
+let signingUp = document.getElementById("signingUp");
+
 loggingIn.addEventListener("click", function(){
 signinSelection.style.display = "none";
 login.style.display = ""
 })
+
+signingUp.addEventListener("click", function(){
+    signinSelection.style.display = "none";
+    signup.style.display = ""
+    })

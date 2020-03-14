@@ -1,9 +1,15 @@
 class User {
-    constructor({id, name, password}){
+
+    static all = []
+
+    constructor({id, username, budgets}){
         this.id = id
-        this.name = name
-        this.password = password
+        this.username = username
+        this.budgets = budgets
+
+        User.all.push(this)
     }
+
 }
 
 function loginFetch(userObject){
@@ -21,6 +27,14 @@ function loginFetch(userObject){
         .then(resp => resp.json())
         .then(function(json){
              console.log(json)
+             if (json.message === "No User Found."){
+                 let p = document.createElement("p");
+                 p.id="incorrectPswrd";
+                 p.innerText = "Password is incorrect.";
+                 document.body.appendChild(p)
+             } else {
+                new User (json)
+             }
         })
         .catch(function(error) {
             alert("Something has gone wrong.");

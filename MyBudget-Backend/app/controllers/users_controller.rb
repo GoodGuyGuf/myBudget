@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         if user.try(:authenticate, params[:password])
             render json: UserSerializer.new(user)
         else 
-            render json: "No User Found."
+            render json: {message: "No User Found."}
         end
     end
 

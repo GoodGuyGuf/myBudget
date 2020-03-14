@@ -9,7 +9,7 @@ class UsersController < ApplicationController
         #byebug
         user = User.find_by(username: params[:user][:username])
         if user.try(:authenticate, params[:password])
-            render json: {message: "success"}
+            render json: UserSerializer.new(user)
         else 
             render json: "No User Found."
         end

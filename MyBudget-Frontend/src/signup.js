@@ -22,3 +22,5 @@ signingUp.addEventListener("click", function(){
     signinSelection.style.display = "none";
     signup.style.display = ""
     })
+
+    

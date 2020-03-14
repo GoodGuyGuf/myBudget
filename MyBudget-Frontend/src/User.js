@@ -33,7 +33,8 @@ function loginFetch(userObject){
                  p.innerText = "Password is incorrect.";
                  document.body.appendChild(p)
              } else {
-                new User (json)
+                 let userObj = {id: json.data.id, username: json.data.attributes.username, budgets: json.data.attributes.budgets }
+                new User (userObj)
              }
         })
         .catch(function(error) {

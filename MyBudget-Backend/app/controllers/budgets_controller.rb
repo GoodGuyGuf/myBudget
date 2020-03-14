@@ -1,8 +1,8 @@
 class BudgetsController < ApplicationController
 
     def index
-        budget = Budget.all
-        render json: BudgetSerializer.new(budget)
+        budgets = Budget.all
+        render json: BudgetSerializer.new(budgets)
     end
 
     def new

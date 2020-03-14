@@ -1,7 +1,10 @@
 let budgetLink = document.getElementById("navBudgets");
 let numberOfBudgets = document.getElementById("navInfo");
-
-allBudgets(); // we call the fetch
+let nav = document.getElementById("nav");
+nav.style.display = "none";
+let budgetForm = document.getElementById("budgetForm");
+budgetForm.style.display = "none";
+//allBudgets(); // we call the fetch
 
 function allBudgets(){ //fetches the budgets and makes objects out of the response
     fetch("http://localhost:3000/budgets")

@@ -18,7 +18,7 @@
     </div>
 
     <div id="LogIn">
-      <form action="http://localhost:3000/users" method="POST">
+      <form id="loginForm" action="http://localhost:3000/users" method="POST">
         <h2>Login</h2>
         <input type="text" name="user[username]" placeholder="Username">
         <input type="text" name="user[password]" placeholder="Password">
@@ -26,8 +26,15 @@
       </form>
     </div>
 
+    <div id="signinSelection">
+      <button id="loggingIn" type='button'>Log in</button>
+      <span>Or</span>
+      <button id="signingUp" type='button'>Sign up</button>
+      <span>?</span>
+    </div>
+
     <div id="SignUp">
-      <form action="http://localhost:3000/users" method="POST">
+      <form id="signupForm" action="http://localhost:3000/users" method="POST">
         <h2>Sign up</h2>
         <input type="text" name="user[username]" placeholder="Username">
         <input type="text" name="user[password]" placeholder="Password">
@@ -48,6 +55,7 @@
 
     <div id="js">
       <script type="application/javascript" src="src/index.js" charset="UTF-8"></script> 
+      <script type="application/javascript" src="src/signup.js" charset="UTF-8"></script>  
       <script type="application/javascript" src="src/Budget.js" charset="UTF-8"></script> 
       <script type="application/javascript" src="src/Expense.js" charset="UTF-8"></script>
       <script type="application/javascript" src="src/expenseForm.js" charset="UTF-8"></script>

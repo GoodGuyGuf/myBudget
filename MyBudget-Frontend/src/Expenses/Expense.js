@@ -27,7 +27,7 @@ function createExpenseForm(id){
     formDiv.id = "expenseForm"
     formDiv.innerHTML = `<div id="form">
 
-    <form action="http://localhost:3000/budgets" method="POST">
+    <form action="http://localhost:3000/expenses" method="POST">
         <h3>New Expense: </h3>
         <label>Name: </label>
         <input id="name${id}" type="text" name="expense[name]" placeholder="Name">
@@ -50,7 +50,7 @@ function createExpenseForm(id){
   let expenseCost = document.querySelector(`#cost${id}`).value
   let expenseDate = document.querySelector(`#date${id}`).value
   let expenseBudgetId = document.querySelector(`#hidden${id}`).value
-  let expenseObject = {name: expenseName, cost: expenseCost, date: expenseDate, budgetId: expenseBudgetId}
+  let expenseObject = {name: expenseName, cost: expenseCost, date: expenseDate, budget_id: expenseBudgetId}
   ExpenseAdapter.newExpense(expenseObject)
   })
 }

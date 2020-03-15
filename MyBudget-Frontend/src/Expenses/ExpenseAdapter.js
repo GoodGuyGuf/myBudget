@@ -18,9 +18,10 @@ class ExpenseAdapter{
         return response.json()
     })
     .then(function(json){
-        new Expense (json);
+        let expObj = {budgetId: json.id, ...json}
+        new Expense (expObj);
         console.log(json)
-        // expenseAddToDom(json)
+        expenseAddToDom(json)
     })
     .catch(function(error) {
         alert("Fetch has gone through. Something else has gone wrong.");
@@ -29,18 +30,18 @@ class ExpenseAdapter{
     }
 }
 
-function expenseAddToDom(object) {
+function expenseAddToDom(expense) {
 
-    let budget = document.getElementById(`expenses${object.budget_id}`)
-    let remaining = document.getElementById(`remainingValue${object.budget_id}`)
-    let div = document.getElementById(`BudgetDiv${object.budget_id}`)
+    let budget = document.getElementById(`expenses${expense.budget_id}`)
+    let remaining = document.getElementById(`remainingValue${expense.budget_id}`)
+    let div = document.getElementById(`BudgetDiv${expense.budget_id}`)
     let remainingValue = parseInt(remaining.innerText.slice(1))
     let ul = document.createElement("ul");
-    ul.id=`expenses${object.budget_id}`
+    ul.id=`expenses${expense.budget_id}`
     let li = document.createElement("li");
 
-    li.textContent = `Expense: Name: ${object.name} - $${object.cost} - Due: ${object.date}`;
-    if (document.querySelector(`#expenses${object.budget_id}`) === null){
+    li.textContent = `Expense: Name: ${expense.name} - $${expense.cost} - Due: ${expense.date}`;
+    if (document.querySelector(`#expenses${expense.budget_id}`) === null){
         div.appendChild(ul)
         div.appendChild(li)
     } else {
@@ -51,6 +52,6 @@ function expenseAddToDom(object) {
     if (remainingValue === 0){
         remaining.innerHTML = "$0"
     } else {
-        remaining.innerHTML = `$${remainingValue - object.cost}`
+        remaining.innerHTML = `$${remainingValue - expense.cost}`
     }
 }

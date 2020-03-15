@@ -2,7 +2,6 @@
 let budgetLink = document.getElementById("navBudgets");
 let numberOfBudgets = document.getElementById("navInfo");
 
-//allBudgets(); // we call the fetch
 
 function allBudgets(){ //fetches the budgets and makes objects out of the response
     

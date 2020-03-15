@@ -12,7 +12,7 @@ class Budget {
     }
 
     get expenses(){
-        return Expense.all.find(function(expense){
+        return Expense.all.filter(function(expense){
             return expense.budgetId === this.id
         }, this)
     }

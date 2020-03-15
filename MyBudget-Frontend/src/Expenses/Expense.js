@@ -13,7 +13,7 @@ class Expense {
     }
 
     get budgets(){
-      return Budget.all.find(function(budget){
+      return Budget.all.filter(function(budget){
           return budget.id === this.budgetId
       }, this)
   }
@@ -62,11 +62,11 @@ fetch("http://localhost:3000/expenses")
     return response.json()
 })
 .then(function(json){
-    console.log(json)
     json.data.forEach(function(expense){
       let newExpenseObj = {id: expense.id, ...expense.attributes, budgetId: expense.attributes.budget_id} 
       new Expense (newExpenseObj)
       })
+      appendExpensesDOM()
 })
 .catch(function(error) {
     alert("Fetch has gone through. Something else has gone wrong.");

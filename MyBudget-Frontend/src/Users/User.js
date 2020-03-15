@@ -39,7 +39,7 @@ function loginFetch(userObject){
                 new User (userObj)
                 nav.style.display = ""
                 let userName = document.getElementById("navUser");
-                userName.innerText = `${userObj.username}`;
+                userName.innerText = `User: ${userObj.username}`;
 
                 let loginForm = document.getElementById("LogIn")
                 loginForm.style.display = "none";

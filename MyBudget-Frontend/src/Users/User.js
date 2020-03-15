@@ -2,12 +2,17 @@ class User {
 
     static all = []
 
-    constructor({id, username, budgets}){
+    constructor({id, username}){
         this.id = id
         this.username = username
-        this.budgets = budgets
 
         User.all.push(this)
+    }
+
+    budgets(){
+        return Budget.all.filter(function(budget){
+            return budget.user_id === this.id
+        }, this)
     }
 
 }
@@ -32,12 +37,12 @@ function loginFetch(userObject){
                  p.innerText = "Password is incorrect.";
                  document.body.appendChild(p)
              } else {
-                let userObj = {id: json.data.id, username: json.data.attributes.username, budgets: {...json.data.relationships.budgets} }
+                let userObj = {id: json.data.id, username: json.data.attributes.username}
                 new User (userObj)
 
                 let loginForm = document.getElementById("LogIn")
                 loginForm.style.display = "none";
-                allBudgets(userObj)
+                allBudgets()
              }
         })
         .catch(function(error) {

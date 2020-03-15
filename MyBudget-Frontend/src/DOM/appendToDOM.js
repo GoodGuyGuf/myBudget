@@ -1,18 +1,23 @@
+// Originall was in index.js file:
 let budgetLink = document.getElementById("navBudgets");
 let numberOfBudgets = document.getElementById("navInfo");
 
 //allBudgets(); // we call the fetch
 
-function allBudgets(user){ //fetches the budgets and makes objects out of the response
+function allBudgets(){ //fetches the budgets and makes objects out of the response
     
-        console.log(user.budgets)
-        user.budgets.forEach(function(budget){
-            let obj = {id: budget.id, ...budget.attributes};
+    fetch("http://localhost:3000/budgets")
+    .then(function(response){
+        return response.json()
+    }).then(function(json){
+        json.data.forEach(function(budget){
+            let obj = {...budget.attributes, id: budget.id};
             new Budget(obj);
-       
+        })
         appendElements()
-        numberOfBudgets.innerText = `Number of Budgets: ${budgets.data.length}`;
+        numberOfBudgets.innerText = `Number of Budgets: ${Budget.all.length}`;
     })
+    
 }
 
 function appendElements(){ //grabs each Budget.all and appends to DOM
@@ -53,6 +58,4 @@ function appendExpenses(budget){ // array is an instance of a budget
     h5.textContent = `$${budget.data.reduce(function(total, element){return total - element.cost}, budget.bank)}`
     div.appendChild(h4);
     div.appendChild(h5);
-
 }
-

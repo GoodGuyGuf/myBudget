@@ -56,3 +56,12 @@ function addToDom(id, object) {
     div.appendChild(remaining);
     div.appendChild(remainingValue);
 }
+
+// Originally was in the file BudgetFetch:
+let budgetSubmit = document.getElementById("budgetSubmit");
+budgetSubmit.addEventListener("click", function(){
+    let budgetTitle = document.querySelector("#budgetTitle").value
+    let budgetBank = document.querySelector("#budgetBank").value
+    let budgetObject = {title: budgetTitle, bank: budgetBank}
+    BudgetAdapter.newBudget(budgetObject)
+})

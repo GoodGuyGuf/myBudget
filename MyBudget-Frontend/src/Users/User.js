@@ -42,6 +42,7 @@ function loginFetch(userObject){
                 loginForm.style.display = "none";
                 allBudgets()
                 expenseFetcher()
+                budgetForm.style.display = ""
              }
         })
         .catch(function(error) {

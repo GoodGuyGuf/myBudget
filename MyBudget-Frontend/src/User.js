@@ -35,6 +35,10 @@ function loginFetch(userObject){
              } else {
                 let userObj = {id: json.data.id, username: json.data.attributes.username, budgets: json.data.attributes.budgets }
                 new User (userObj)
+
+                let loginForm = document.getElementById("LogIn")
+                loginForm.style.display = "none";
+                allBudgets()
              }
         })
         .catch(function(error) {

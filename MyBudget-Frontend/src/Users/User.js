@@ -10,7 +10,7 @@ class User {
     }
 
     get budgets(){
-        return Budget.all.find(budget => budget.userId === this.id)
+        return Budget.all.filter(budget => budget.userId === this.id)
     }
 
 }

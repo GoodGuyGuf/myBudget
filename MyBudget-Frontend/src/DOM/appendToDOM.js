@@ -15,30 +15,29 @@ function allBudgets(){ //fetches the budgets and makes objects out of the respon
             let obj = {id: budget.id, ...budget.attributes, user_id: budget.relationships.user.data.id};
             new Budget(obj);
         })
-        // appendElements()
-        // numberOfBudgets.innerText = `Number of Budgets: ${Budget.all.length}`;
+        appendElements()
+        numberOfBudgets.innerText = `Number of Budgets: ${User.all[0].budgets.length}`;
     })
     
 }
 
 function appendElements(){ //grabs each Budget.all and appends to DOM
-    for (array of User.all[0].budgets.data){
+    for (let i = 0; i < User.all[0].budgets.length; i++){
     
     let div = document.createElement("div");
-    div.id=`BudgetDiv${array.id}`;
+    div.id=`BudgetDiv${User.all[0].budgets[i].id}`;
     div.className="BudgetDiv"
     document.body.appendChild(div);
     let h1 = document.createElement("h1");
 
-    h1.id = `Budget${array.id}`
-    h1.textContent = `Budget for: ${array.title} - Balance: $${array.bank}`;
+    h1.id = `Budget${User.all[0].budgets[i].id}`
+    h1.textContent = `Budget for: ${User.all[0].budgets[i].title} - Balance: $${User.all[0].budgets[i].bank}`;
     div.appendChild(h1);
-
-    appendExpenses(array)
 }
+    // appendExpenses(User.all[0].expenses)
 }
 
-function appendExpenses(budget){ // array is an instance of a budget
+function appendExpenses(expenses){ // array is an instance of a budget
     let div = document.getElementById(`BudgetDiv${budget.data.id}`)
     let ul = document.createElement("ul");
     ul.id =`expenses${budget.id}`

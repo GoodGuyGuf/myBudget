@@ -3,22 +3,20 @@ let numberOfBudgets = document.getElementById("navInfo");
 
 //allBudgets(); // we call the fetch
 
-function allBudgets(){ //fetches the budgets and makes objects out of the response
-    fetch("http://localhost:3000/budgets")
-    .then(function(response){
-        return response.json()
-    }).then(function(json){
-        json.data.forEach(function(budget){
-            let obj = {...budget.attributes, id: budget.id};
+function allBudgets(user){ //fetches the budgets and makes objects out of the response
+    
+        console.log(user.budgets)
+        user.budgets.forEach(function(budget){
+            let obj = {id: budget.id, ...budget.attributes};
             new Budget(obj);
-        })
+       
         appendElements()
-        numberOfBudgets.innerText = `Number of Budgets: ${Budget.all.length}`;
+        numberOfBudgets.innerText = `Number of Budgets: ${budgets.data.length}`;
     })
 }
 
 function appendElements(){ //grabs each Budget.all and appends to DOM
-    for (array of Budget.all){
+    for (array of User.all[0].budgets.data){
     
     let div = document.createElement("div");
     div.id=`BudgetDiv${array.id}`;
@@ -34,25 +32,25 @@ function appendElements(){ //grabs each Budget.all and appends to DOM
 }
 }
 
-function appendExpenses(array){ // array is an instance of a budget
-    let div = document.getElementById(`BudgetDiv${array.id}`)
+function appendExpenses(budget){ // array is an instance of a budget
+    let div = document.getElementById(`BudgetDiv${budget.data.id}`)
     let ul = document.createElement("ul");
-    ul.id =`expenses${array.id}`
+    ul.id =`expenses${budget.id}`
     div.appendChild(ul)
-    for (let i = 0; i < array.expenses.length; i++){
+    for (let i = 0; i < budget.data.length; i++){
         let li = document.createElement("li");
         
-        li.textContent = `Expense: Name: ${array.expenses[i].name} - $${array.expenses[i].cost} - Due: ${array.expenses[i].date}`;
+        li.textContent = `Expense: Name: ${budget.data[i].name} - $${budget.data[i].cost} - Due: ${budget.data[i].date}`;
 
         ul.appendChild(li);
     }
-    createExpenseForm(array.id);
+    createExpenseForm(budget.data.id);
     let h4 = document.createElement("h4");
     let h5 = document.createElement("h4");
-    h5.id=`remainingValue${array.id}`
+    h5.id=`remainingValue${budget.data.id}`
 
     h4.textContent = "Remaining balance:";
-    h5.textContent = `$${array.expenses.reduce(function(total, element){return total - element.cost}, array.bank)}`
+    h5.textContent = `$${budget.data.reduce(function(total, element){return total - element.cost}, budget.bank)}`
     div.appendChild(h4);
     div.appendChild(h5);
 

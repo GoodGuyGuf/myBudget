@@ -26,19 +26,18 @@ function loginFetch(userObject){
     fetch('http://localhost:3000/login', fetchObject)
         .then(resp => resp.json())
         .then(function(json){
-             console.log(json)
              if (json.message === "No User Found."){
                  let p = document.createElement("p");
                  p.id="incorrectPswrd";
                  p.innerText = "Password is incorrect.";
                  document.body.appendChild(p)
              } else {
-                let userObj = {id: json.data.id, username: json.data.attributes.username, budgets: json.data.attributes.budgets }
+                let userObj = {id: json.data.id, username: json.data.attributes.username, budgets: {...json.data.relationships.budgets} }
                 new User (userObj)
 
                 let loginForm = document.getElementById("LogIn")
                 loginForm.style.display = "none";
-                allBudgets()
+                allBudgets(userObj)
              }
         })
         .catch(function(error) {

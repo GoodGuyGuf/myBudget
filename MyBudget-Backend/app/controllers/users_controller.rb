@@ -4,7 +4,7 @@ class UsersController < ApplicationController
         users = User.all
         render json: UserSerializer.new(users)
     end
-
+    
     def create 
         user = User.create(username: params[:username], password: params[:password])
         if user.id == "null"

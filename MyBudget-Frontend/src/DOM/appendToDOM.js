@@ -52,13 +52,15 @@ function appendExpensesDOM(){
 
     for (let i = 0; i < Budget.all.length; i++){
         createExpenseForm(Budget.all[i].id);
-    }
-    // let h4 = document.createElement("h4");
-    // let h5 = document.createElement("h4");
-    // h5.id=`remainingValue${budget[i].id}`
 
-    // h4.textContent = "Remaining balance:";
-    // h5.textContent = `$${budget[i].expenses.reduce(function(total, element){return total - element.cost}, budget.bank)}`
-    // div.appendChild(h4);
-    // div.appendChild(h5);
+        let div = document.getElementById(`BudgetDiv${Budget.all[i].id}`)
+        let h4 = document.createElement("h4");
+        let h5 = document.createElement("h4");
+        h5.id=`remainingValue${Budget.all[i].id}`
+
+        h4.textContent = "Remaining balance:";
+        h5.textContent = `$${Budget.all[i].expenses.reduce(function(total, element){return total - element.cost}, Budget.all[i].bank)}`
+        div.appendChild(h4);
+        div.appendChild(h5);
+    }
 }

@@ -50,7 +50,9 @@ function appendExpensesDOM(){
         ul.appendChild(li);
     }
 
-    // createExpenseForm(budget[i].id);
+    for (let i = 0; i < Budget.all.length; i++){
+        createExpenseForm(Budget.all[i].id);
+    }
     // let h4 = document.createElement("h4");
     // let h5 = document.createElement("h4");
     // h5.id=`remainingValue${budget[i].id}`

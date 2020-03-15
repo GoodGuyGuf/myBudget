@@ -10,8 +10,10 @@ function allBudgets(){ //fetches the budgets and makes objects out of the respon
         return response.json()
     }).then(function(json){
         json.data.forEach(function(budget){
-            let obj = {id: budget.id, ...budget.attributes, user_id: budget.relationships.user.data.id};
+            if (budget.attributes.id == User.all[0].id){
+            let obj = {id: budget.id, ...budget.attributes, user_id: budget.attributes.user_id};
             new Budget(obj);
+            }
         })
         appendElements()
         numberOfBudgets.innerText = `Number of Budgets: ${User.all[0].budgets.length}`;

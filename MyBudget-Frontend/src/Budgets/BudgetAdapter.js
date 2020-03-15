@@ -62,6 +62,6 @@ let budgetSubmit = document.getElementById("budgetSubmit");
 budgetSubmit.addEventListener("click", function(){
     let budgetTitle = document.querySelector("#budgetTitle").value
     let budgetBank = document.querySelector("#budgetBank").value
-    let budgetObject = {title: budgetTitle, bank: budgetBank}
+    let budgetObject = {title: budgetTitle, bank: budgetBank, user_id: User.all[0].id}
     BudgetAdapter.newBudget(budgetObject)
 })

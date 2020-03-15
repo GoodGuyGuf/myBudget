@@ -3,15 +3,15 @@ class User {
     static all = []
 
     constructor({id, username}){
-        this.id = id
+        this.id = parseInt(id)
         this.username = username
 
         User.all.push(this)
     }
 
-    budgets(){
-        return Budget.all.filter(function(budget){
-            return budget.user_id === this.id
+    get budgets(){
+        return Budget.all.find(function(budget){
+            return budget.userId === this.id
         }, this)
     }
 

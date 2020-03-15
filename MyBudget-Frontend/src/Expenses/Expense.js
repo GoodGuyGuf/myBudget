@@ -12,10 +12,12 @@ class Expense {
         Expense.all.push(this)
     }
 
-    get total(){
-    //    let aggregate = Expense.all.reduce(a, b => a + b)
-    //    return aggregate
-    }
+    budgets(){
+      return Budget.all.filter(function(budget){
+          return budget.id === this.budgetId
+      }, this)
+  }
+
 }
 
 // Originally was in the file expenseForm:

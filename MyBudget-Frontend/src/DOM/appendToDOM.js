@@ -10,12 +10,13 @@ function allBudgets(){ //fetches the budgets and makes objects out of the respon
     .then(function(response){
         return response.json()
     }).then(function(json){
+        console.log(json)
         json.data.forEach(function(budget){
-            let obj = {...budget.attributes, id: budget.id};
+            let obj = {id: budget.id, ...budget.attributes};
             new Budget(obj);
         })
-        appendElements()
-        numberOfBudgets.innerText = `Number of Budgets: ${Budget.all.length}`;
+        // appendElements()
+        // numberOfBudgets.innerText = `Number of Budgets: ${Budget.all.length}`;
     })
     
 }

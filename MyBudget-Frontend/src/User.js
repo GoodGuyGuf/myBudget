@@ -23,7 +23,7 @@ function loginFetch(userObject){
         body: JSON.stringify(userObject)
     }
     
-    fetch('http://localhost:3000/users', fetchObject)
+    fetch('http://localhost:3000/login', fetchObject)
         .then(resp => resp.json())
         .then(function(json){
              console.log(json)
@@ -47,8 +47,8 @@ let loggingInForm = document.getElementById("LogIn");
 
     loggingInForm.addEventListener("submit", function(e){
         e.preventDefault();
-        let name = document.querySelector("#username").value;
-        let pswrd = document.querySelector("#password").value;
+        let name = document.querySelector("#usernameLogin").value;
+        let pswrd = document.querySelector("#passwordLogin").value;
         let userObject = {username: name, password: pswrd};
         loginFetch(userObject);
     })

@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :budgets, only: [:index, :new, :create, :show]
   resources :expenses, only: [:create]
   resources :users, only: [:index, :create, :show]
+
+  post 'login', to: 'users#session'
 end

@@ -7,16 +7,17 @@ class UsersController < ApplicationController
 
     def create 
         #byebug
+        user = User.create(user_params)
+        render json: UserSerializer.new(user)
+    end
+
+    def session
         user = User.find_by(username: params[:user][:username])
         if user.try(:authenticate, params[:password])
             render json: UserSerializer.new(user)
-        else 
+        else
             render json: {message: "No User Found."}
         end
-    end
-
-    def show
-        
     end
 
     private

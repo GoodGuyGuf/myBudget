@@ -12,7 +12,7 @@ function allBudgets(){ //fetches the budgets and makes objects out of the respon
     }).then(function(json){
         console.log(json)
         json.data.forEach(function(budget){
-            let obj = {id: budget.id, ...budget.attributes};
+            let obj = {id: budget.id, ...budget.attributes, user_id: budget.relationships.user.data.id};
             new Budget(obj);
         })
         // appendElements()

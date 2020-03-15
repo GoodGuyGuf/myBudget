@@ -10,9 +10,7 @@ class User {
     }
 
     get budgets(){
-        return Budget.all.find(function(budget){
-            return budget.userId === this.id
-        }, this)
+        return Budget.all.find(budget => budget.userId === this.id)
     }
 
 }
@@ -43,6 +41,7 @@ function loginFetch(userObject){
                 let loginForm = document.getElementById("LogIn")
                 loginForm.style.display = "none";
                 allBudgets()
+                expenseFetcher()
              }
         })
         .catch(function(error) {

@@ -20,7 +20,7 @@ class ExpenseAdapter{
     .then(function(json){
         new Expense (json);
         console.log(json)
-        expenseAddToDom(json)
+        // expenseAddToDom(json)
     })
     .catch(function(error) {
         alert("Fetch has gone through. Something else has gone wrong.");

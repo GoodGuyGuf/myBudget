@@ -3,17 +3,17 @@ class Expense {
     static all = []
 
     constructor({id, name, cost, date, budgetId}){
-        this.id = id
+        this.id = parseInt(id)
         this.name = name
         this.cost = cost
         this.date = date
-        this.budgetId = budgetId
+        this.budgetId = parseInt(budgetId)
 
         Expense.all.push(this)
     }
 
-    budgets(){
-      return Budget.all.filter(function(budget){
+    get budgets(){
+      return Budget.all.find(function(budget){
           return budget.id === this.budgetId
       }, this)
   }
@@ -50,7 +50,26 @@ function createExpenseForm(id){
   let expenseCost = document.querySelector(`#cost${id}`).value
   let expenseDate = document.querySelector(`#date${id}`).value
   let expenseBudgetId = document.querySelector(`#hidden${id}`).value
-  let expenseObject = {name: expenseName, cost: expenseCost, date: expenseDate, budget_id: expenseBudgetId}
+  let expenseObject = {name: expenseName, cost: expenseCost, date: expenseDate, budgetId: expenseBudgetId}
   ExpenseAdapter.newExpense(expenseObject)
   })
+}
+
+
+function expenseFetcher(){
+fetch("http://localhost:3000/expenses")
+    .then(function(response) { 
+    return response.json()
+})
+.then(function(json){
+    console.log(json)
+    json.data.forEach(function(expense){
+      let newExpenseObj = {id: expense.id, ...expense.attributes, budgetId: expense.attributes.budget_id} 
+      new Expense (newExpenseObj)
+      })
+})
+.catch(function(error) {
+    alert("Fetch has gone through. Something else has gone wrong.");
+    console.log(error.message);
+  });
 }

@@ -6,13 +6,17 @@ class UsersController < ApplicationController
     end
 
     def create 
-        #byebug
-        user = User.create(user_params)
-        render json: UserSerializer.new(user)
+        user = User.create(username: params[:username], password: params[:password])
+        if user.id == "null"
+            render json: UserSerializer.new(user)
+        else
+            render json: {message: "User already has an account"}
+        end
     end
 
     def session
         user = User.find_by(username: params[:user][:username])
+        #byebug
         if user.try(:authenticate, params[:password])
             render json: UserSerializer.new(user)
         else

@@ -38,10 +38,10 @@ function signupFetch(userObject){
         .then(resp => resp.json())
         .then(function(json){
              console.log(json)
-             if (json.message === "No User Found."){
+             if (json.message === "User already has an account"){
                  let p = document.createElement("p");
-                 p.id="incorrectPswrd";
-                 p.innerText = "Password is incorrect.";
+                 p.id="incorrectLogin";
+                 p.innerText = "User already has an account";
                  document.body.appendChild(p)
              } else {
                  console.log(json)

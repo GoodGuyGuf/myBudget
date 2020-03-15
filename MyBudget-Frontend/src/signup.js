@@ -23,4 +23,84 @@ signingUp.addEventListener("click", function(){
     signup.style.display = ""
     })
 
+//     function loginFetch(userObject){
+
+//     let fetchObject = {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//             "Accept": "application/json"
+//         }, 
+//         body: JSON.stringify(userObject)
+//     }
     
+//     fetch('http://localhost:3000/users', fetchObject)
+//         .then(resp => resp.json())
+//         .then(function(json){
+//              console.log(json)
+//              if (json.message === "No User Found."){
+//                  let p = document.createElement("p");
+//                  p.id="incorrectPswrd";
+//                  p.innerText = "Password is incorrect.";
+//                  document.body.appendChild(p)
+//              } else {
+//                 let userObj = {id: json.data.id, username: json.data.attributes.username, budgets: json.data.attributes.budgets }
+//                 new User (userObj)
+//              }
+//         })
+//         .catch(function(error) {
+//             alert("Something has gone wrong.");
+//             console.log(error.message);
+//         });
+//     }
+    
+// let loggingInForm = document.getElementById("LogIn");
+
+//     loggingInForm.addEventListener("submit", function(e){
+//         e.preventDefault();
+//         let name = document.querySelector("#username").value;
+//         let pswrd = document.querySelector("#password").value;
+//         let userObject = {username: name, password: pswrd};
+//         loginFetch(userObject);
+// })
+
+// function signupFetch(userObject){
+
+//     let fetchObject = {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//             "Accept": "application/json"
+//         }, 
+//         body: JSON.stringify(userObject)
+//     }
+    
+//     fetch('http://localhost:3000/users', fetchObject)
+//         .then(resp => resp.json())
+//         .then(function(json){
+//              console.log(json)
+//              if (json.message === "No User Found."){
+//                  let p = document.createElement("p");
+//                  p.id="incorrectPswrd";
+//                  p.innerText = "Password is incorrect.";
+//                  document.body.appendChild(p)
+//              } else {
+//                 let userObj = {id: json.data.id, username: json.data.attributes.username, budgets: json.data.attributes.budgets }
+//                 new User (userObj)
+//              }
+//         })
+//         .catch(function(error) {
+//             alert("Something has gone wrong.");
+//             console.log(error.message);
+//         });
+//     }
+    
+// let signingInForm = document.getElementById("SignUp");
+
+//     signingInForm.addEventListener("submit", function(e){
+//         e.preventDefault();
+//         let name = document.querySelector("#username").value;
+//         let pswrd = document.querySelector("#password").value;
+//         let userObject = {username: name, password: pswrd};
+//         signupFetch(userObject);
+//     })

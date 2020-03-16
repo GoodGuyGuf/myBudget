@@ -41,12 +41,12 @@ function appendElements(){ //grabs each Budget.all and appends to DOM
 
 function appendExpensesDOM(){ 
 
-    if (Expense.all.length === 0){
-        for (let i = 0; i < Expense.all.length; i++){
-            let ul = document.getElementById(`expenses${Expense.all[i].budgetId}`) // For each expense, grab the ul with the id of the budgetId
+    if (User.all[0].expenses.length > 0){
+        for (let i = 0; i < User.all[0].expenses.length; i++){
+            let ul = document.getElementById(`expenses${User.all[0].expenses[i].budgetId}`) // For each expense, grab the ul with the id of the budgetId
             let li = document.createElement("li");
 
-            li.textContent = `Expense: Name: ${Expense.all[i].name} - $${Expense.all[i].cost} - Due: ${Expense.all[i].date}`;
+            li.textContent = `Expense: Name: ${User.all[0].expenses[i].name} - $${User.all[0].expenses[i].cost} - Due: ${User.all[0].expenses[i].date}`;
             ul.appendChild(li);
         }
     }

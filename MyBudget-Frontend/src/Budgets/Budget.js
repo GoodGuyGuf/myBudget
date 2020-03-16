@@ -17,11 +17,4 @@ class Budget {
         }, this)
     }
 
-    // get thisUsersBudgets(){
-    //     Budget.all.filter(function(budget){
-    //         if (budget.userId !== User.all[0].id)
-    //         delete budget
-    //     })
-    // }
-    
 }

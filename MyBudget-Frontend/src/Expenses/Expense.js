@@ -54,7 +54,7 @@ function createExpenseForm(id){
   let expenseBudgetId = document.querySelector(`#hidden${id}`).value
   let expenseBudgetUserId = document.querySelector(`#hiddenUser${id}`).value
   let expenseObject = {name: expenseName, cost: expenseCost, date: expenseDate, budget_id: expenseBudgetId, user_id: expenseBudgetUserId }
-  ExpenseAdapter.newExpense(expenseObject)
+  newExpense(expenseObject)
   })
 }
 

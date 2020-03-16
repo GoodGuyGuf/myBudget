@@ -1,9 +1,4 @@
-class ExpenseAdapter{
-    constructor(url){
-        this.url = url
-    }
-
-    static newExpense(expenseObject) {
+function newExpense(expenseObject) {
         let fetchObject = {
             method: "POST",
             headers: {
@@ -28,7 +23,7 @@ class ExpenseAdapter{
         console.log(error.message);
       });
     }
-}
+
 
 function expenseAddToDom(expense) {
 

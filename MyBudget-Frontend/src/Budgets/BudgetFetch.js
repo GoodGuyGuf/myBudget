@@ -1,9 +1,5 @@
-class BudgetAdapter{
-    constructor(url){
-        this.url = url
-    }
 
-    static newBudget(budgetObject) {
+function newBudget(budgetObject) {
         let fetchObject = {
             method: "POST",
             headers: {
@@ -31,8 +27,6 @@ class BudgetAdapter{
         console.log(error.message);
       });
     }
-
-}
 
 function addToDom(id, object) {
 
@@ -71,5 +65,5 @@ budgetSubmit.addEventListener("click", function(){
     let budgetBank = document.querySelector("#budgetBank").value
     console.log(foundUser)
     let budgetObject = {title: budgetTitle, bank: budgetBank, user_id: JSON.stringify(foundUser.id)}
-    BudgetAdapter.newBudget(budgetObject)
+    newBudget(budgetObject)
 })

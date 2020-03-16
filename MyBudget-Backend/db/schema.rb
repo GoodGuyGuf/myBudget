@@ -26,7 +26,9 @@ ActiveRecord::Schema.define(version: 2020_03_12_133051) do
     t.float "cost"
     t.string "date"
     t.bigint "budget_id"
+    t.bigint "user_id"
     t.index ["budget_id"], name: "index_expenses_on_budget_id"
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -18,8 +18,12 @@ class BudgetAdapter{
         return response.json();
     })
     .then(function(json){
-        new Budget(json);
-        console.log(json);
+        let navUserGrab = document.getElementById("navUser")
+        let userName = navUserGrab.innerText.slice(6)
+        let foundUser = User.all.find(user => user.username === userName)
+        let budgetObj = {id: json.data.id, ...json.data.attributes, user_id: foundUser.id}
+        new Budget(budgetObj);
+        console.log(budgetObj);
         addToDom(json.data.id, json.data.attributes);
     })
     .catch(function(error) {
@@ -60,8 +64,12 @@ function addToDom(id, object) {
 // Originally was in the file BudgetFetch:
 let budgetSubmit = document.getElementById("budgetSubmit");
 budgetSubmit.addEventListener("click", function(){
+    let navUserGrab = document.getElementById("navUser")
+    // let userName = navUserGrab.innerText.slice(6)
+    let foundUser = User.all[0]
     let budgetTitle = document.querySelector("#budgetTitle").value
     let budgetBank = document.querySelector("#budgetBank").value
-    let budgetObject = {title: budgetTitle, bank: budgetBank, user_id: User.all[0].id}
+    console.log(foundUser)
+    let budgetObject = {title: budgetTitle, bank: budgetBank, user_id: JSON.stringify(foundUser.id)}
     BudgetAdapter.newBudget(budgetObject)
 })

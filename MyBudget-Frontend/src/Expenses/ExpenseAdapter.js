@@ -18,7 +18,7 @@ class ExpenseAdapter{
         return response.json()
     })
     .then(function(json){
-        let expObj = {budgetId: json.id, ...json}
+        let expObj = {budgetId: json.id, ...json, userId: json.user_id}
         new Expense (expObj);
         console.log(json)
         expenseAddToDom(json)

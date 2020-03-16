@@ -2,12 +2,13 @@ class Expense {
 
     static all = []
 
-    constructor({id, name, cost, date, budgetId}){
+    constructor({id, name, cost, date, budgetId, user_id}){
         this.id = parseInt(id)
         this.name = name
         this.cost = cost
         this.date = date
         this.budgetId = parseInt(budgetId)
+        this.userId = user_id
 
         Expense.all.push(this)
     }
@@ -39,6 +40,7 @@ function createExpenseForm(id){
         <input id="date${id}" type="text" name="expense[date]" placeholder="Date">
 
         <input id="hidden${id}" type="hidden" name="expense[budget_id]" value="${id}">
+        <input id="hidden${id}" type="hidden" name="expense[user_id]" value="${User.all[0].id}">
       <input id='submit' value='Submit' type='submit'>
     </form>
   </div>`
@@ -63,7 +65,8 @@ fetch("http://localhost:3000/expenses")
 })
 .then(function(json){
     json.data.forEach(function(expense){
-      let newExpenseObj = {id: expense.id, ...expense.attributes, budgetId: expense.attributes.budget_id} 
+      console.log(expense)
+      let newExpenseObj = {id: expense.id, ...expense.attributes, budgetId: expense.attributes.budget_id, user_id: expense.attributes.user_id } 
       new Expense (newExpenseObj)
       })
       appendExpensesDOM()

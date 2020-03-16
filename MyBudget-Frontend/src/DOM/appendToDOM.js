@@ -10,10 +10,8 @@ function allBudgets(){ //fetches the budgets and makes objects out of the respon
         return response.json()
     }).then(function(json){
         json.data.forEach(function(budget){
-            if (budget.attributes.id == User.all[0].id){
             let obj = {id: budget.id, ...budget.attributes, user_id: budget.attributes.user_id};
             new Budget(obj);
-            }
         })
         appendElements()
         numberOfBudgets.innerText = `Number of Budgets: ${User.all[0].budgets.length}`;
@@ -43,12 +41,14 @@ function appendElements(){ //grabs each Budget.all and appends to DOM
 
 function appendExpensesDOM(){ 
 
-    for (let i = 0; i < Expense.all.length; i++){
-        let ul = document.getElementById(`expenses${Expense.all[i].budgetId}`) // For each expense, grab the ul with the id of the budgetId
-        let li = document.createElement("li");
+    if (Expense.all.length === 0){
+        for (let i = 0; i < Expense.all.length; i++){
+            let ul = document.getElementById(`expenses${Expense.all[i].budgetId}`) // For each expense, grab the ul with the id of the budgetId
+            let li = document.createElement("li");
 
-        li.textContent = `Expense: Name: ${Expense.all[i].name} - $${Expense.all[i].cost} - Due: ${Expense.all[i].date}`;
-        ul.appendChild(li);
+            li.textContent = `Expense: Name: ${Expense.all[i].name} - $${Expense.all[i].cost} - Due: ${Expense.all[i].date}`;
+            ul.appendChild(li);
+        }
     }
 
     for (let i = 0; i < Budget.all.length; i++){
@@ -63,5 +63,5 @@ function appendExpensesDOM(){
         h5.textContent = `$${Budget.all[i].expenses.reduce(function(total, element){return total - element.cost}, Budget.all[i].bank)}`
         div.appendChild(h4);
         div.appendChild(h5);
-    }
+}
 }

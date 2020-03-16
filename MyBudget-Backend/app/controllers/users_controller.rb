@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     
     def create 
         user = User.create(username: params[:username], password: params[:password])
-        if user.id == "null"
+        if user.valid?
             render json: UserSerializer.new(user)
         else
             render json: {message: "User already has an account"}

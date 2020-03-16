@@ -40,7 +40,7 @@ function createExpenseForm(id){
         <input id="date${id}" type="text" name="expense[date]" placeholder="Date">
 
         <input id="hidden${id}" type="hidden" name="expense[budget_id]" value="${id}">
-        <input id="hidden${id}" type="hidden" name="expense[user_id]" value="${User.all[0].id}">
+        <input id="hiddenUser${id}" type="hidden" name="expense[user_id]" value="${User.all[0].id}">
       <input id='submit' value='Submit' type='submit'>
     </form>
   </div>`
@@ -52,7 +52,8 @@ function createExpenseForm(id){
   let expenseCost = document.querySelector(`#cost${id}`).value
   let expenseDate = document.querySelector(`#date${id}`).value
   let expenseBudgetId = document.querySelector(`#hidden${id}`).value
-  let expenseObject = {name: expenseName, cost: expenseCost, date: expenseDate, budget_id: expenseBudgetId}
+  let expenseBudgetUserId = document.querySelector(`#hiddenUser${id}`).value
+  let expenseObject = {name: expenseName, cost: expenseCost, date: expenseDate, budget_id: expenseBudgetId, user_id: expenseBudgetUserId }
   ExpenseAdapter.newExpense(expenseObject)
   })
 }
@@ -69,7 +70,6 @@ fetch("http://localhost:3000/expenses")
       let newExpenseObj = {id: expense.id, ...expense.attributes, budgetId: expense.attributes.budget_id, user_id: expense.attributes.user_id } 
       new Expense (newExpenseObj)
       })
-      appendExpensesDOM()
 })
 .catch(function(error) {
     alert("Fetch has gone through. Something else has gone wrong.");

@@ -36,32 +36,35 @@ function appendElements(){ //grabs each Budget.all and appends to DOM
     ul.id =`expenses${User.all[0].budgets[i].id}`;
     div.appendChild(ul)
 }
-
+appendExpensesDOM()
 }
 
 function appendExpensesDOM(){ 
 
-    if (User.all[0].expenses.length > 0){
+    for (let i = 0; i < User.all[0].budgets.length; i++){
+        createExpenseForm(User.all[0].budgets[i].id);
+
+        let div = document.getElementById(`BudgetDiv${User.all[0].budgets[i].id}`)
+        let h4 = document.createElement("h4");
+        let h5 = document.createElement("h4");
+        h5.id=`remainingValue${User.all[0].budgets[i].id}`
+
+        h4.textContent = "Remaining balance:";
+        h5.textContent = `$${User.all[0].budgets[i].expenses.reduce(function(total, element){return total - element.cost}, User.all[0].budgets[i].bank)}`
+        div.appendChild(h4);
+        div.appendChild(h5);
+    }
+    ExpenseAppender()
+}
+
+function ExpenseAppender(){
+    if (User.all[0].expenses.length !== 0){
         for (let i = 0; i < User.all[0].expenses.length; i++){
-            let ul = document.getElementById(`expenses${User.all[0].expenses[i].budgetId}`) // For each expense, grab the ul with the id of the budgetId
+            let ul = document.getElementById(`expenses${User.all[0].expenses[i].budgetId}`)
             let li = document.createElement("li");
 
             li.textContent = `Expense: Name: ${User.all[0].expenses[i].name} - $${User.all[0].expenses[i].cost} - Due: ${User.all[0].expenses[i].date}`;
             ul.appendChild(li);
         }
     }
-
-    for (let i = 0; i < Budget.all.length; i++){
-        createExpenseForm(Budget.all[i].id);
-
-        let div = document.getElementById(`BudgetDiv${Budget.all[i].id}`)
-        let h4 = document.createElement("h4");
-        let h5 = document.createElement("h4");
-        h5.id=`remainingValue${Budget.all[i].id}`
-
-        h4.textContent = "Remaining balance:";
-        h5.textContent = `$${Budget.all[i].expenses.reduce(function(total, element){return total - element.cost}, Budget.all[i].bank)}`
-        div.appendChild(h4);
-        div.appendChild(h5);
-}
 }

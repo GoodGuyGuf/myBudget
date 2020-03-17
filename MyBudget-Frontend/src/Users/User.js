@@ -1,12 +1,12 @@
 class User {
 
-    static all = []
+    static currentUser = []
 
     constructor({id, username}){
         this.id = parseInt(id)
         this.username = username
 
-        User.all.push(this)
+        User.currentUser.push(this)
     }
 
     get budgets(){
@@ -16,5 +16,6 @@ class User {
     get expenses(){
         return Expense.all.filter(expense => expense.userId === this.id)
     }
+
 
 }

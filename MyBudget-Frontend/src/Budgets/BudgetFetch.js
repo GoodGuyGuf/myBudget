@@ -20,6 +20,10 @@ function newBudget(budgetObject) {
         let budgetObj = {id: json.data.id, ...json.data.attributes, user_id: foundUser.id}
         new Budget(budgetObj);
         addToDom(json.data.id, json.data.attributes);
+
+        // let budget = new Budget(budgetObj);
+        // budget.partialrender - partialrender would contain the code that appends to DOM
+
     })
     .catch(function(error) {
         alert("Fetch has gone through. Something else has gone wrong.");

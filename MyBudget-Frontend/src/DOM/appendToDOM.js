@@ -46,11 +46,12 @@ function appendExpensesDOM(){
 
         let div = document.getElementById(`BudgetDiv${User.all[0].budgets[i].id}`)
         let h4 = document.createElement("h4");
-        let h5 = document.createElement("h4");
+        let h5 = document.createElement("h5");
         h5.id=`remainingValue${User.all[0].budgets[i].id}`
 
         h4.textContent = "Remaining balance:";
-        h5.textContent = `$${User.all[0].budgets[i].expenses.reduce(function(total, element){return total - element.cost}, User.all[0].budgets[i].bank)}`
+        // h5.textContent = `$${User.all[0].budgets[i].expenses.reduce(function(total, element){return total - element.cost}, User.all[0].budgets[i].bank)}`
+        h5.textContent = `$${User.all[0].budgets[i].remainingBalance}`;
         div.appendChild(h4);
         div.appendChild(h5);
     }

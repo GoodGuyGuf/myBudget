@@ -15,6 +15,10 @@ class Budget {
         return Expense.all.filter(function(expense){
             return expense.budgetId === this.id
         }, this)
+    }// expense.render appends expenses
+
+    get remainingBalance(){
+        return this.expenses.reduce(function(total, element){return total - element.cost}, this.bank)
     }
 
 }

@@ -47,6 +47,14 @@ function signupFetch(userObject){
                  console.log(json)
                 let userObj = {id: json.data.id, username: json.data.attributes.username, budgets: json.data.attributes.budgets }
                 new User (userObj)
+
+                nav.style.display = ""
+                let userName = document.getElementById("navUser");
+                userName.innerText = `User: ${userObj.username}`;
+
+                let signupForm = document.getElementById("SignUp")
+                signupForm.style.display = "none";
+                budgetForm.style.display = ""
              }
         })
         .catch(function(error) {

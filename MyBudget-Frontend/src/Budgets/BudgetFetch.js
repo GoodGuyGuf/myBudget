@@ -19,7 +19,6 @@ function newBudget(budgetObject) {
         let foundUser = User.all.find(user => user.username === userName)
         let budgetObj = {id: json.data.id, ...json.data.attributes, user_id: foundUser.id}
         new Budget(budgetObj);
-        console.log(budgetObj);
         addToDom(json.data.id, json.data.attributes);
     })
     .catch(function(error) {

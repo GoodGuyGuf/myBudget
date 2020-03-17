@@ -44,7 +44,6 @@ function signupFetch(userObject){
                  p.innerText = "User already has an account";
                  document.body.appendChild(p)
              } else {
-                 console.log(json)
                 let userObj = {id: json.data.id, username: json.data.attributes.username, budgets: json.data.attributes.budgets }
                 new User (userObj)
 

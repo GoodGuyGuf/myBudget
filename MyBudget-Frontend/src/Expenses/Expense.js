@@ -66,7 +66,6 @@ fetch("http://localhost:3000/expenses")
 })
 .then(function(json){
     json.data.forEach(function(expense){
-      console.log(expense)
       let newExpenseObj = {id: expense.id, ...expense.attributes, budgetId: expense.attributes.budget_id, user_id: expense.attributes.user_id } 
       new Expense (newExpenseObj)
       })

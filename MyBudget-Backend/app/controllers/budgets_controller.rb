@@ -10,6 +10,11 @@ class BudgetsController < ApplicationController
         redirect_to budget_path(budget)
     end
 
+    def show
+        budget = Budget.find_by_id(params[:id])
+        render json: BudgetSerializer.new(budget)
+    end
+
     private
 
     def budget_params

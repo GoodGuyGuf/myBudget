@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :budgets, only: [:index, :new, :create, :show]
+  resources :budgets, only: [:index, :create]
   resources :expenses, only: [:index, :create]
-  resources :users, only: [:index, :create, :show]
+  resources :users, only: [:index, :create]
 
   post 'login', to: 'users#session'
 end

@@ -14,7 +14,7 @@ function allBudgets(){ //fetches the budgets and makes objects out of the respon
             new Budget(obj);
         })
         appendElements()
-        numberOfBudgets.innerText = `Number of Budgets: ${User.all[0].budgets.length}`;
+        numberOfBudgets.innerText = `Number of Budgets: ${User.currentUser().budgets.length}`;
     })
     
 }
@@ -50,7 +50,6 @@ function appendExpensesDOM(){
         h5.id=`remainingValue${User.currentUser().budgets[i].id}`
 
         h4.textContent = "Remaining balance:";
-        // h5.textContent = `$${User.all[0].budgets[i].expenses.reduce(function(total, element){return total - element.cost}, User.all[0].budgets[i].bank)}`
         h5.textContent = `$${User.currentUser().budgets[i].remainingBalance}`;
         div.appendChild(h4);
         div.appendChild(h5);
@@ -59,7 +58,7 @@ function appendExpensesDOM(){
 }
 
 function ExpenseAppender(){
-    if (User.all[0].expenses.length !== 0){
+    if (User.currentUser().expenses.length !== 0){
         for (let i = 0; i < User.currentUser().expenses.length; i++){
             let ul = document.getElementById(`expenses${User.currentUser().expenses[i].budgetId}`)
             let li = document.createElement("li");

@@ -40,7 +40,7 @@ function createExpenseForm(id){
         <input id="date${id}" type="text" name="expense[date]" placeholder="Date">
 
         <input id="hidden${id}" type="hidden" name="expense[budget_id]" value="${id}">
-        <input id="hiddenUser${id}" type="hidden" name="expense[user_id]" value="${User.all[0].id}">
+        <input id="hiddenUser${id}" type="hidden" name="expense[user_id]" value="${User.currentUser().id}">
       <input id='submit' value='Submit' type='submit'>
     </form>
   </div>`

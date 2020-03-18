@@ -63,10 +63,9 @@ let budgetSubmit = document.getElementById("budgetSubmit");
 budgetSubmit.addEventListener("click", function(){
     let navUserGrab = document.getElementById("navUser")
     // let userName = navUserGrab.innerText.slice(6)
-    let foundUser = User.all[0]
     let budgetTitle = document.querySelector("#budgetTitle").value
     let budgetBank = document.querySelector("#budgetBank").value
     console.log(foundUser)
-    let budgetObject = {title: budgetTitle, bank: budgetBank, user_id: JSON.stringify(foundUser.id)}
+    let budgetObject = {title: budgetTitle, bank: budgetBank, user_id: JSON.stringify(User.currentUser().id)}
     newBudget(budgetObject)
 })

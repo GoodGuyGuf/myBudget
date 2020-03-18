@@ -38,34 +38,21 @@ function addToDom(id, object) {
     let div = document.createElement("div");
     div.id=`BudgetDiv${id}`;
     div.className="BudgetDiv"
-    
-    let newH1 = document.createElement("h1");
-    newH1.id = `Budget${id}`;
-    newH1.textContent = `Budget for: ${object.title} - Balance: $${object.bank}`;
 
-    let remaining = document.createElement("h4")
-    remaining.innerText="Remaining Balance:";
-
-    let remainingValue = document.createElement("h4")
-    remainingValue.id=`remainingValue${id}`;
-    remainingValue.innerText=`$${object.bank}`;
+    div.innerHTML = `<h1 id='Budget${id}'>Budget for: ${object.title} - Balance: $${object.bank}</h1>
+    <h4>Remaining Balance</h4>
+    <h4 id='remainingValue${id}'>$${object.bank}</h4>`
 
     document.body.appendChild(div);
-    div.appendChild(newH1);
     createExpenseForm(id);
-
-    div.appendChild(remaining);
-    div.appendChild(remainingValue);
 }
+
 
 // Originally was in the file BudgetFetch:
 let budgetSubmit = document.getElementById("budgetSubmit");
 budgetSubmit.addEventListener("click", function(){
-    let navUserGrab = document.getElementById("navUser")
-    // let userName = navUserGrab.innerText.slice(6)
     let budgetTitle = document.querySelector("#budgetTitle").value
     let budgetBank = document.querySelector("#budgetBank").value
-    console.log(foundUser)
     let budgetObject = {title: budgetTitle, bank: budgetBank, user_id: JSON.stringify(User.currentUser().id)}
     newBudget(budgetObject)
 })

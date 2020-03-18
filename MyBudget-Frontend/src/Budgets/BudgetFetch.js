@@ -40,6 +40,7 @@ function addToDom(id, object) {
     div.className="BudgetDiv"
 
     div.innerHTML = `<h1 id='Budget${id}'>Budget for: ${object.title} - Balance: $${object.bank}</h1>
+    <ul id='expenses${id}'></ul>
     <h4>Remaining Balance</h4>
     <h4 id='remainingValue${id}'>$${object.bank}</h4>`
 
@@ -53,6 +54,6 @@ let budgetSubmit = document.getElementById("budgetSubmit");
 budgetSubmit.addEventListener("click", function(){
     let budgetTitle = document.querySelector("#budgetTitle").value
     let budgetBank = document.querySelector("#budgetBank").value
-    let budgetObject = {title: budgetTitle, bank: budgetBank, user_id: JSON.stringify(User.currentUser().id)}
+    let budgetObject = {title: budgetTitle, bank: budgetBank, user_id: User.currentUser().id}
     newBudget(budgetObject)
 })

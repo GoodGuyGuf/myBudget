@@ -42,7 +42,7 @@ appendExpensesDOM()
 function appendExpensesDOM(){ 
 
     for (let i = 0; i < User.currentUser().budgets.length; i++){
-        createExpenseForm(User.currentUser().budgets[i].id);
+
 
         let div = document.getElementById(`BudgetDiv${User.currentUser().budgets[i].id}`)
         let h4 = document.createElement("h4");
@@ -53,6 +53,7 @@ function appendExpensesDOM(){
         h5.textContent = `$${User.currentUser().budgets[i].remainingBalance}`;
         div.appendChild(h4);
         div.appendChild(h5);
+        createExpenseForm(User.currentUser().budgets[i].id);
     }
     ExpenseAppender()
 }

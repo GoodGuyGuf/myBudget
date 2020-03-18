@@ -33,7 +33,6 @@ function newBudget(budgetObject) {
 
 function addToDom(id, object) {
 
-    let numberOfBudgets = document.getElementById("navInfo");
     numberOfBudgets.innerText = `Number of Budgets: ${Budget.all.length}`;
     let div = document.createElement("div");
     div.id=`BudgetDiv${id}`;

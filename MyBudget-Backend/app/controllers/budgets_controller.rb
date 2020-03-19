@@ -6,8 +6,13 @@ class BudgetsController < ApplicationController
     end
 
     def create
-        budget = Budget.create(budget_params)
-        redirect_to budget_path(budget)
+        budget = Budget.new(budget_params)
+        if budget.valid?
+            budget.save
+            redirect_to budget_path(budget)
+        else
+            render json: {message: "Fields cannot be blank"}
+        end
     end
 
     def show

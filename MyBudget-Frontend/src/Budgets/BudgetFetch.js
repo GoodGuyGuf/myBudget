@@ -14,16 +14,23 @@ function newBudget(budgetObject) {
         return response.json();
     })
     .then(function(json){
-        let navUserGrab = document.getElementById("navUser")
-        let userName = navUserGrab.innerText.slice(6)
-        let foundUser = User.all.find(user => user.username === userName)
-        let budgetObj = {id: json.data.id, ...json.data.attributes, user_id: foundUser.id}
-        new Budget(budgetObj);
-        addToDom(json.data.id, json.data.attributes);
+        console.log(json)
+        if (json.message === "Fields cannot be blank"){
+            let budgetForm = document.getElementById("budgetForm")
+            let p = document.createElement("p")
+            p.innerText = json.message
+            budgetForm.appendChild(p)
+        } else {
+            let navUserGrab = document.getElementById("navUser")
+            let userName = navUserGrab.innerText.slice(6)
+            let foundUser = User.all.find(user => user.username === userName)
+            let budgetObj = {id: json.data.id, ...json.data.attributes, user_id: foundUser.id}
+            new Budget(budgetObj);
+            addToDom(json.data.id, json.data.attributes);
 
         // let budget = new Budget(budgetObj);
         // budget.partialrender - partialrender would contain the code that appends to DOM
-
+        }
     })
     .catch(function(error) {
         alert("Fetch has gone through. Something else has gone wrong.");

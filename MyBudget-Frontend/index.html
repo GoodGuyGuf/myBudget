@@ -51,6 +51,11 @@
         <input id="budgetBank" type="number" name="budget[bank]" placeholder="Budget Total">
         <button id='budgetSubmit' type='button'>Submit</button>
       </form>
+
+      <form id="budgetFormFilter" action="http://localhost:3000/budgets" method="GET">
+        <h1>Filter Budgets by Balance</h1>
+        <input id='BudgetFilter' type="text" name="Budget[bank]" placeholder="Submit">
+        <button id="filterSubmit" type='button'>Submit</button>
     </div>
 
     <div id="js">
@@ -58,7 +63,8 @@
       <script type="application/javascript" src="src/Users/login.js" charset="UTF-8"></script> 
       <script type="application/javascript" src="src/Users/signup.js" charset="UTF-8"></script>  
       <script type="application/javascript" src="src/Budgets/Budget.js" charset="UTF-8"></script> 
-      <script type="application/javascript" src="src/Budgets/BudgetFetch.js" charset="UTF-8"></script>   
+      <script type="application/javascript" src="src/Budgets/BudgetFetch.js" charset="UTF-8"></script>  
+      <script type="application/javascript" src="src/BudgetFilter/budgetFilter.js" charset="UTF-8"></script>  
       <script type="application/javascript" src="src/Expenses/Expense.js" charset="UTF-8"></script>
       <script type="application/javascript" src="src/Expenses/ExpenseFetch.js" charset="UTF-8"></script>  
       <script type="application/javascript" src="src/DOM/appendToDOM.js" charset="UTF-8"></script> 

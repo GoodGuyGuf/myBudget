@@ -26,8 +26,8 @@ function loginFetch(userObject){
 
                 let loginForm = document.getElementById("LogIn")
                 loginForm.style.display = "none";
-                allBudgets()
                 expenseFetcher()
+                allBudgets()
                 budgetForm.style.display = ""
              }
         })

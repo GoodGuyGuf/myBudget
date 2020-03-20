@@ -18,8 +18,13 @@ function newBudget(budgetObject) {
         if (json.message === "Fields cannot be blank"){
             let budgetForm = document.getElementById("budgetForm")
             let p = document.createElement("p")
+            p.id="errorFieldMessage"
             p.innerText = json.message
             budgetForm.appendChild(p)
+            setTimeout(() => {
+                let error = document.getElementById("errorFieldMessage")
+                error.remove()
+            }, 3000);
         } else {
             let navUserGrab = document.getElementById("navUser")
             let userName = navUserGrab.innerText.slice(6)

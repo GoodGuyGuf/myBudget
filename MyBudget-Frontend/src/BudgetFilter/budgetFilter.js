@@ -20,6 +20,9 @@ filterSubmit.addEventListener("click", function(){
         let li = document.createElement("li")
         li.innerHTML = `${element.title}`
         budgetForm.appendChild(li)
+        setTimeout(() => {
+            li.remove()
+        }, 5000);
     });
 
 })

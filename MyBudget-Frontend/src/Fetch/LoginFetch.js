@@ -15,13 +15,16 @@ function loginFetch(userObject){
         if (json.message === "No User Found."){
             new LoginError
         } else {
-           let userObj = {id: json.data.id, username: json.data.attributes.username}
-           
+           let userObj = {
+               id: json.data.id, 
+               username: json.data.attributes.username, 
+               budgetsCount: json.data.attributes.budgets_count
+            }
            if (userObj){
                 console.log(userObj)
 
                 new User (userObj)
-                new Home
+                new Home(userObj.username, userObj.budgetsCount)
            }
         }
     }

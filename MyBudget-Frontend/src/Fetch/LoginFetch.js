@@ -21,8 +21,6 @@ function loginFetch(userObject){
                budgetsCount: json.data.attributes.budgets_count
             }
            if (userObj){
-                console.log(userObj)
-
                 new User (userObj)
                 new Home(userObj.username, userObj.budgetsCount)
            }

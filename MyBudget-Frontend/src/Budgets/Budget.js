@@ -1,24 +1,42 @@
 class Budget {
 
-    static all = []
+    static all = [];
     
     constructor({id, title, bank, user_id}){
-        this.id = parseInt(id)
-        this.title = title
-        this.bank = bank
-        this.userId = user_id
+        this.id = parseInt(id);
+        this.title = title;
+        this.bank = bank;
+        this.userId = user_id;
+        Budget.all.push(this);
 
-        Budget.all.push(this)
+        this.container = document.createElement("div");
+        this.container.id = `budget${id}`;
+        document.body.appendChild(this.container);
+
+        this.titleNode = document.createElement("h1");
+        this.titleNode.id = `BudgetTitle${id}`;
+        this.titleNode.innerHTML = `Budget for: ${title} | Balance: ${bank}`;
+        this.container.appendChild(this.titleNode);
+
+        this.table = document.createElement("table");
+        this.table.id = `BudgetTable${id}`;
+        is.table.innerHTML = 
+        "<tr>" +
+            "<th>Id</th>" +
+            "<th>Name</th>" +
+            "<th>Cost</th>" +
+            "<th>Date</th>" +
+        "</tr>"
     }
 
     get expenses(){
         return Expense.all.filter(function(expense){
-            return expense.budgetId === this.id
+            return expense.budgetId === this.id;
         }, this)
     }// expense.render appends expenses
 
     get remainingBalance(){
-        return this.expenses.reduce(function(total, element){return total - element.cost}, this.bank)
+        return this.expenses.reduce(function(total, element){return total - element.cost}, this.bank);
     }
 
 }

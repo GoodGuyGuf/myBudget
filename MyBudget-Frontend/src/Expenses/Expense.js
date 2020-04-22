@@ -1,25 +1,33 @@
-// class Expense {
+class Expense {
 
-//     static all = []
+    static all = []
 
-//     constructor({id, name, cost, date, budgetId, user_id}){
-//         this.id = parseInt(id)
-//         this.name = name
-//         this.cost = cost
-//         this.date = date
-//         this.budgetId = parseInt(budgetId)
-//         this.userId = user_id
+    constructor({id, name, cost, date, budgetId, user_id}){
+        this.id = parseInt(id)
+        this.name = name
+        this.cost = cost
+        this.date = date
+        this.budgetId = parseInt(budgetId)
+        this.userId = user_id
+        Expense.all.push(this)
 
-//         Expense.all.push(this)
-//     }
+        this.row = document.createElement("tr");
+        this.row.id = `Expense${id}`;
+        this.row.innerHTML = 
+            `<td>${id}</td>` +
+            `<td>${name}</td>` +
+            `<td>${cost}</td>` +
+            `<td>${date}</td>`
+    }
 
-//     get budgets(){
-//       return Budget.all.filter(function(budget){
-//           return budget.id === this.budgetId
-//       }, this)
-//   }
+    get budgets(){
+      return Budget.all.filter(function(budget){
+          return budget.id === this.budgetId
+      }, this)
+  }
 
-// }
+}
+
 
 // // Originally was in the file expenseForm:
 // function createExpenseForm(id){

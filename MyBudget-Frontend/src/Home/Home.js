@@ -11,5 +11,6 @@ class Home {
         this.budgetForm = new BudgetForm
 
         fetchBudgets()
+        // fetchExpenses()
     }
 }

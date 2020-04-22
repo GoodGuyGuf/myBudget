@@ -19,11 +19,8 @@ class Login {
       this.div.appendChild(this.form);
 
       this.signupLink = document.createElement("div");
-        this.signupLink.innerHTML = 
-        "<div id='signup'>" +
-            "<h3>Don't Have An Account?</h3>" +
-            "<button id='signupButton'>Sign up</button>" +
-        "</div>"
+      this.signupLink.id='signup'
+      this.signupLink.innerHTML = "<h3>Don't Have An Account?</h3><button id='signupButton'>Sign up</button>"
 
       document.body.appendChild(this.signupLink);
 
@@ -32,20 +29,21 @@ class Login {
     }
 
     hideLogin(){
+      const login = document.getElementById("LogIn");
       const signupButton = document.getElementById("signupButton");
       const signup = document.getElementById("signup");
-      const login = document.getElementById("LogIn");
 
       signupButton.addEventListener("click", () => {
           new Signup;
+          signupButton.remove()
           login.remove();
           signup.remove();
       })
     }
 
     logInSubmit(){
-      const loginForm = document.getElementById("loginForm")
-      console.log(loginForm)
+      const loginForm = document.getElementById("loginForm");
+      const signup = document.getElementById("signup");
 
       loginForm.addEventListener("submit", event => {
         event.preventDefault()
@@ -53,6 +51,8 @@ class Login {
         let pswrd = document.querySelector("#passwordLogin").value;
         let userObject = {username: name, password: pswrd};
         loginFetch(userObject);
+        loginForm.remove()
+        signup.remove()
       })
     }
 }

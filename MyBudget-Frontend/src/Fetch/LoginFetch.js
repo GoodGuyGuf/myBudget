@@ -16,7 +16,7 @@ function loginFetch(userObject){
                  new LoginError
              } else {
                 let userObj = {id: json.data.id, username: json.data.attributes.username}
-                // new User (userObj)
+                new User (userObj)
                 console.log(userObj)
              }
         })

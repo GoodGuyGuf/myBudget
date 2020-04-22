@@ -8,20 +8,23 @@ function loginFetch(userObject){
         }, 
         body: JSON.stringify(userObject)
     }
-    
-    fetch('http://localhost:3000/login', fetchObject)
-        .then(resp => resp.json())
-        .then(function(json){
-             if (json.message === "No User Found."){
-                 new LoginError
-             } else {
-                let userObj = {id: json.data.id, username: json.data.attributes.username}
-                new User (userObj)
+
+    const fetcher = async () => {
+        const response = await fetch('http://localhost:3000/login', fetchObject)
+        const json = await response.json();
+        if (json.message === "No User Found."){
+            new LoginError
+        } else {
+           let userObj = {id: json.data.id, username: json.data.attributes.username}
+           
+           if (userObj){
                 console.log(userObj)
-             }
-        })
-        .catch(function(error) {
-            alert("Something has gone wrong.");
-            console.log(error.message);
-        });
+
+                new User (userObj)
+                new Home
+           }
+        }
+    }
+
+    fetcher()
     }

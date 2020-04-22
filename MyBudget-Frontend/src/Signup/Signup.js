@@ -4,9 +4,9 @@ class Signup {
         this.form.innerHTML = "<div id='SignUp'>" + 
         "<form id='signupForm' action='http://localhost:3000/users' method='POST'>" +
           "<h2>Sign up</h2>" +
-          "<input id='username' type='text' name='user[username]' placeholder='Username'><br/>" +
-          "<input id='password' type='password' name='user[password]' placeholder='Password'><br/>" +
-          "<input type='submit' name='submit' value='Submit'>" +
+          "<input id='username' type='text' name='user[username]' placeholder='Username'/><br/>" +
+          "<input id='password' type='password' name='user[password]' placeholder='Password'/><br/>" +
+          "<input type='submit' name='submit' value='Submit'/>" +
         "</form>" +
       "</div>"
 

@@ -20,13 +20,17 @@ class Budget {
 
         this.table = document.createElement("table");
         this.table.id = `BudgetTable${id}`;
-        is.table.innerHTML = 
+        this.container.appendChild(this.table);
+
+        this.initialRow = document.createElement("tr")
+        this.initialRow.innerHTML = 
         "<tr>" +
             "<th>Id</th>" +
             "<th>Name</th>" +
             "<th>Cost</th>" +
             "<th>Date</th>" +
         "</tr>"
+        this.container.appendChild(this.initialRow)
     }
 
     get expenses(){

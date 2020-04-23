@@ -4,6 +4,8 @@ class Expense < ActiveRecord::Base
     belongs_to :user
 
     def budget_remaining_balance
-        self.budget.remaining_balance
+        if self.budget.present?
+            return self.budget.remaining_balance
+        end
     end
 end

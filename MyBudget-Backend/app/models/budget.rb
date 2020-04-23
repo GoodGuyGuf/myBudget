@@ -9,6 +9,8 @@ class Budget < ActiveRecord::Base
     end
 
     def remaining_balance
-        self.bank - expenses_total
+        if expenses_total
+            self.bank - expenses_total
+        end
     end
 end

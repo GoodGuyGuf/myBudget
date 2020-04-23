@@ -1,5 +1,5 @@
 class Home {
-    constructor(user, num){
+    constructor(user, num, user_id){
         this.numberOfBudgets = document.createElement("p");
         this.numberOfBudgets.innerHTML = `Number of Budgets: ${num}`;
         document.body.appendChild(this.numberOfBudgets);
@@ -8,7 +8,7 @@ class Home {
         this.username.innerHTML = `Username: ${user}`
         document.body.appendChild(this.username)
 
-        this.budgetForm = new BudgetForm
+        this.budgetForm = new BudgetForm(user_id)
         fetchExpenses()
         fetchBudgets()
     }

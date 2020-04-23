@@ -1,6 +1,6 @@
 class BudgetForm{
-    constructor(){
-
+    constructor(user_id){
+        this.userId = user_id
         this.div = document.createElement("div");
         this.div.id = "budgetFormContainer";
         document.body.appendChild(this.div);
@@ -13,10 +13,25 @@ class BudgetForm{
           "<input id='budgetTitle' type='text' name='budget[title]' placeholder='Title'><br/>" +
           "<label>Total:</label>" +
           "<input id='budgetBank' type='number' name='budget[bank]' placeholder='Budget Total'><br/>" +
-          "<button id='budgetSubmit' type='button'>Submit</button>" +
+          "<input id='budgetSubmit' type='submit'>" +
         "</form>"
 
-        this.div.appendChild(this.form)
-        
+        this.div.appendChild(this.form);
+        this.budgetSubmit();
+    }
+
+    budgetSubmit(){
+      this.form.addEventListener("submit", event => {
+        console.log(event)
+        event.preventDefault();
+        let title = document.getElementById("budgetTitle").value
+        let balance = document.getElementById("budgetBank").value
+        let budgetObject = {
+          title: title,
+          bank: balance,
+          user_id: this.userId
+        }
+        createBudget(budgetObject)
+      })
     }
 }

@@ -22,7 +22,7 @@ function loginFetch(userObject){
             }
            if (userObj){
                 new User (userObj)
-                new Home(userObj.username, userObj.budgetsCount)
+                new Home(userObj.username, userObj.budgetsCount, userObj.id)
            }
         }
     }

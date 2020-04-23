@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         if user.valid?
             render json: UserSerializer.new(user)
         else
-            render json: {message: "User already has an account"}
+            render json: {message: "Something went wrong"}
         end
     end
 

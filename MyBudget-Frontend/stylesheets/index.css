@@ -43,11 +43,25 @@ input{
 }
 
 div[id^="budget"]{
+   margin: 0 auto;
     border: 2px solid #999999;
     border-radius: 8px;
+    box-sizing: content-box;
+    width: 70%;
+}
+
+h1[id^="BudgetTitle"]{
+text-align: center;
 }
 
 table{
+    display: inline-table;
     border: 2px solid #999999;
     border-radius: 8px;
+    box-sizing: content-box;
+    width: 50%;
+}
+
+tr{
+    display: inline-table;
 }

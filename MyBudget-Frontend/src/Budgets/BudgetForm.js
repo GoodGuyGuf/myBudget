@@ -10,9 +10,9 @@ class BudgetForm{
         this.form.innerHTML = "<form action='http://localhost:3000/budgets' method='POST'>" +
           "<h2>New Budget: </h2>" +
           "<label>Title:</label>" +
-          "<input id='budgetTitle' type='text' name='budget[title]' placeholder='Title'>" +
+          "<input id='budgetTitle' type='text' name='budget[title]' placeholder='Title'><br/>" +
           "<label>Total:</label>" +
-          "<input id='budgetBank' type='number' name='budget[bank]' placeholder='Budget Total'>" +
+          "<input id='budgetBank' type='number' name='budget[bank]' placeholder='Budget Total'><br/>" +
           "<button id='budgetSubmit' type='button'>Submit</button>" +
         "</form>"
 

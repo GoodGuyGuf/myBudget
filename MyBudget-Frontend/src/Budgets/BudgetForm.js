@@ -22,7 +22,6 @@ class BudgetForm{
 
     budgetSubmit(){
       this.form.addEventListener("submit", event => {
-        console.log(event)
         event.preventDefault();
         let title = document.getElementById("budgetTitle").value
         let balance = document.getElementById("budgetBank").value

@@ -13,7 +13,7 @@ function createBudget(object){
         const response = await fetch('http://localhost:3000/budgets', fetchObject)
         const json = await response.json()
         if (json.message === "Fields cannot be blank"){
-            // new BudgetError
+            new BudgetError
             console.log(json)
         } else {
             console.log(json)

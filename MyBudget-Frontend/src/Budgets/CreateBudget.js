@@ -14,11 +14,9 @@ function createBudget(object){
         const json = await response.json()
         if (json.message === "Fields cannot be blank"){
             new BudgetError
-            console.log(json)
         } else {
-            console.log(json)
-            // let budgetObj = {id: json.data.id, ...json.data.attributes}
-            // new Budget(budgetObj);
+            let budgetObj = {id: json.data.id, ...json.data.attributes}
+            new Budget(budgetObj);
         }
     }
     fetcher()

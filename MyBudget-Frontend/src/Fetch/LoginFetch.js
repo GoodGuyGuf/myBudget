@@ -28,4 +28,4 @@ function loginFetch(userObject){
     }
 
     fetcher()
-    }
+}

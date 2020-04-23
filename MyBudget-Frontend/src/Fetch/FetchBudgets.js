@@ -16,7 +16,10 @@ function fetchBudgets(){
     })
 
     userBudgets.forEach(budget => {
-        let obj = {id: budget.id, ...budget.attributes, user_id: budget.attributes.user_id};
+        let obj = {id: budget.id, 
+            ...budget.attributes, 
+            remaining_balance: budget.attributes.remaining_balance, 
+            user_id: budget.attributes.user_id};
         new Budget(obj);
     })
     }

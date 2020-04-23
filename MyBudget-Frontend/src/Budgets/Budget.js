@@ -30,7 +30,7 @@ class Budget {
             "<th>Cost</th>" +
             "<th>Date</th>" +
         "</tr>"
-        this.container.appendChild(this.initialRow)
+        this.table.appendChild(this.initialRow)
     }
 
     get expenses(){

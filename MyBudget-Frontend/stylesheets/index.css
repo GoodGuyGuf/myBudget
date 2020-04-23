@@ -41,3 +41,13 @@ input{
 .BudgetDiv form{
     left: 20%
 }
+
+div[id^="budget"]{
+    border: 2px solid #999999;
+    border-radius: 8px;
+}
+
+table{
+    border: 2px solid #999999;
+    border-radius: 8px;
+}

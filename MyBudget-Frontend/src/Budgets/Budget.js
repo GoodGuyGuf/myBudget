@@ -31,6 +31,7 @@ class Budget {
             "<th>Date</th>" +
         "</tr>"
         this.table.appendChild(this.initialRow)
+        new ExpenseForm(this.id, this.userId)
     }
 
     get expenses(){

@@ -50,21 +50,6 @@ class Expense {
 //     formDiv.id = "expenseForm"
 //     formDiv.innerHTML = `<div id="form">
 
-//     <form action="http://localhost:3000/expenses" method="POST">
-//         <h3>New Expense: </h3>
-//         <label>Name: </label>
-//         <input id="name${id}" type="text" name="expense[name]" placeholder="Name">
-
-//         <label>Cost: </label>
-//         <input id="cost${id}" type="number" name="expense[cost]" placeholder="Cost">
-
-//         <label>Date: </label>
-//         <input id="date${id}" type="text" name="expense[date]" placeholder="Date">
-
-//         <input id="hidden${id}" type="hidden" name="expense[budget_id]" value="${id}">
-//         <input id="hiddenUser${id}" type="hidden" name="expense[user_id]" value="${User.currentUser().id}">
-//       <input id='submit' value='Submit' type='submit'>
-//     </form>
 //   </div>`
 //   budgetDiv.appendChild(formDiv)
   

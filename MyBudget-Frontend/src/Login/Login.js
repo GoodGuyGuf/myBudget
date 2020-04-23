@@ -34,7 +34,7 @@ class Login {
       const signup = document.getElementById("signup");
 
       signupButton.addEventListener("click", () => {
-          new Signup;
+          new Signup; // <- this marks where the User chooses the signup option. The login form will be removed.
           signupButton.remove()
           login.remove();
           signup.remove();
@@ -50,8 +50,8 @@ class Login {
         let name = document.querySelector("#usernameLogin").value;
         let pswrd = document.querySelector("#passwordLogin").value;
         let userObject = {username: name, password: pswrd};
-        loginFetch(userObject);
-        loginForm.remove()
+        loginFetch(userObject); // This is where the app flows next. When the login submit button is hit, it goes to loginFetch
+        loginForm.remove() // which is in the Fetch Directory.
         signup.remove()
       })
     }

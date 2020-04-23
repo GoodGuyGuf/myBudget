@@ -21,9 +21,9 @@ function loginFetch(userObject){
                budgetsCount: json.data.attributes.budgets_count
             }
            if (userObj){
-                new User (userObj)
-                new Home(userObj.username, userObj.budgetsCount, userObj.id)
-           }
+                new User (userObj) // loginFetch directs to here, where it creates a new user object
+                new Home(userObj.username, userObj.budgetsCount, userObj.id)  // Then it will render the next part of the application,
+           } // The home screen.
         }
     }
 

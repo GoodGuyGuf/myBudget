@@ -9,15 +9,10 @@ class BudgetsController < ApplicationController
         budget = Budget.new(budget_params)
         if budget.valid?
             budget.save
-            redirect_to budget_path(budget)
+            render json: BudgetSerializer.new(budget)
         else
             render json: {message: "Fields cannot be blank"}
         end
-    end
-
-    def show
-        budget = Budget.find_by_id(params[:id])
-        render json: BudgetSerializer.new(budget)
     end
 
     private

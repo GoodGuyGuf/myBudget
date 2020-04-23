@@ -17,13 +17,13 @@ ActiveRecord::Schema.define(version: 2020_03_12_133051) do
 
   create_table "budgets", force: :cascade do |t|
     t.string "title"
-    t.decimal "bank"
+    t.integer "bank"
     t.integer "user_id"
   end
 
   create_table "expenses", force: :cascade do |t|
     t.string "name"
-    t.float "cost"
+    t.integer "cost"
     t.string "date"
     t.bigint "budget_id"
     t.bigint "user_id"

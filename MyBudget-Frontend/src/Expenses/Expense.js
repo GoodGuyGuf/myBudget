@@ -17,13 +17,20 @@ class Expense {
         this.row.id = `Expense${this.id}`;
         this.table.appendChild(this.row)
 
-        this.data = document.createElement("td")
-        this.data.innerHTML = 
-            `<td>${this.id}</td>` +
-            `<td>${this.name}</td>` +
-            `<td>$${this.cost}</td>` +
-            `<td>${this.date}</td>`
-        this.row.appendChild(this.data)
+        this.idRow = document.createElement("td")
+        this.nameRow = document.createElement("td")
+        this.costRow = document.createElement("td")
+        this.dateRow = document.createElement("td")
+
+        this.idRow.innerHTML = `<td>${this.id}</td>`
+        this.nameRow.innerHTML = `<td>${this.name}</td>`
+        this.costRow.innerHTML = `<td>${this.cost}</td>`
+        this.dateRow.innerHTML = `<td>${this.date}</td>`
+
+        this.row.appendChild(this.idRow)
+        this.row.appendChild(this.nameRow)
+        this.row.appendChild(this.costRow)
+        this.row.appendChild(this.dateRow)
     }
     
     get budgets(){

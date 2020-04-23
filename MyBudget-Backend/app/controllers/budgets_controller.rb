@@ -15,6 +15,17 @@ class BudgetsController < ApplicationController
         end
     end
 
+    def destroy
+        byebug
+        budget = Budget.find_by_id(params[:id])
+        budget.destroy
+        if budget.nil?
+            render json: {message: "Successful Deletion."}
+        else
+            render json: {message: "Failed to Delete"}
+        end
+    end
+
     private
 
     def budget_params

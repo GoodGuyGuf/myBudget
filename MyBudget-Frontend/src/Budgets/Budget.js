@@ -23,7 +23,6 @@ class Budget {
         this.remainingBalanceNode = document.createElement("p");
         this.remainingBalanceNode.id = `Budget${this.id}RemainingBalance`;
         this.remainingBalanceNode.innerHTML = `Remaining Balance: ${this.remainingBalance}`;
-        this.container.appendChild(this.remainingBalanceNode)
 
         this.table = document.createElement("table");
         this.table.id = `BudgetTable_${id}`;
@@ -38,6 +37,7 @@ class Budget {
             "<th>Date</th>" +
         "</tr>"
         this.table.appendChild(this.initialRow)
+        this.container.appendChild(this.remainingBalanceNode)
         new ExpenseForm(this.id, this.userId)
     }
 

@@ -25,6 +25,20 @@ class Signup {
 
       document.body.appendChild(this.loginLink)
       this.hideSignup()
+      this.handleSignUp()
+    }
+
+    handleSignUp(){
+      this.form.addEventListener("submit", event => {
+        event.preventDefault();
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        const userObj = {
+          username: username,
+          password: password
+        }
+        signupUser(userObj)
+      })
     }
 
       hideSignup(){

@@ -19,7 +19,7 @@ class Budget {
         this.container.appendChild(this.titleNode);
 
         this.table = document.createElement("table");
-        this.table.id = `BudgetTable${id}`;
+        this.table.id = `BudgetTable_${id}`;
         this.container.appendChild(this.table);
 
         this.initialRow = document.createElement("tr")

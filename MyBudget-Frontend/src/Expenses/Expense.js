@@ -2,31 +2,38 @@ class Expense {
 
     static all = []
 
-    constructor({id, name, cost, date, budgetId, user_id}){
-        this.id = parseInt(id)
+    constructor({id, name, cost, date, budget_id, user_id}){
+        this.id = id
         this.name = name
         this.cost = cost
         this.date = date
-        this.budgetId = parseInt(budgetId)
+        this.budgetId = budget_id
         this.userId = user_id
         Expense.all.push(this)
 
+        this.table = document.getElementById(`BudgetTable_${this.budgetId}`)
+        
         this.row = document.createElement("tr");
-        this.row.id = `Expense${id}`;
-        this.row.innerHTML = 
-            `<td>${id}</td>` +
-            `<td>${name}</td>` +
-            `<td>${cost}</td>` +
-            `<td>${date}</td>`
-    }
+        this.row.id = `Expense${this.id}`;
+        this.table.appendChild(this.row)
 
+        this.data = document.createElement("td")
+        this.data.innerHTML = 
+            `<td>${this.id}</td>` +
+            `<td>${this.name}</td>` +
+            `<td>$${this.cost}</td>` +
+            `<td>${this.date}</td>`
+        this.row.appendChild(this.data)
+    }
+    
     get budgets(){
       return Budget.all.filter(function(budget){
           return budget.id === this.budgetId
       }, this)
-  }
+    }
 
 }
+
 
 
 // // Originally was in the file expenseForm:

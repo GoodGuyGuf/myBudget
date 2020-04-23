@@ -9,8 +9,7 @@ class Home {
         document.body.appendChild(this.username)
 
         this.budgetForm = new BudgetForm
-
+        fetchExpenses()
         fetchBudgets()
-        // fetchExpenses()
     }
 }

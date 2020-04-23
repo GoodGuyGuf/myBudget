@@ -5,7 +5,7 @@ function fetchBudgets(){
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
-        }, 
+        } 
     }
     const fetcher = async() => {
     const response = await fetch('http://localhost:3000/budgets', fetchObject)

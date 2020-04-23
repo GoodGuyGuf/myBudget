@@ -1,28 +1,30 @@
-// function newExpense(expenseObject) {
-//         let fetchObject = {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 "Accept": "application/json"
-//             }, 
-//             redirect: "follow",
-//             body: JSON.stringify(expenseObject)
-//         }
-//     fetch("http://localhost:3000/expenses", fetchObject)
-//         .then(function(response) { 
-//         return response.json()
-//     })
-//     .then(function(json){
-//         let expObj = {budgetId: json.id, ...json, userId: json.user_id}
-//         new Expense (expObj);
-//         expenseAddToDom(json)
-//     })
-//     .catch(function(error) {
-//         alert("Fetch has gone through. Something else has gone wrong.");
-//         console.log(error.message);
-//       });
-//     }
+function fetchExpenses() {
+    let fetchObject = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    }
 
+    const fetcher = async() => {
+        const response = await fetch('http://localhost:3000/expenses', fetchObject)
+        const json = await response.json()
+        
+        const userExpenses = json.data.filter(expense => {
+            return expense.attributes.user_id === User.currentUser().id
+        })
+        
+        userExpenses.forEach(expense => {
+            let obj = {id: expense.id,
+                 ...expense.attributes
+                }
+                setTimeout(() => new Expense(obj), 500)
+            // new Expense(obj);
+        })
+    }
+    fetcher()
+}
 
 // function expenseAddToDom(expense) {
 

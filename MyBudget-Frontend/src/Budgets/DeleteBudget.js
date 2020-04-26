@@ -12,7 +12,6 @@ function deleteBudget(id){
     const fetcher = async() => {
         const response = await fetch(`http://localhost:3000/budgets/${id}`, fetchObject)
         const json = await response.json()
-        console.log(json)
         if (json.message === "Failed to Delete"){
             console.log(json)
         } else if (json.message === "Successful Deletion."){

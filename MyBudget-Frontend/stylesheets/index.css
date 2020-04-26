@@ -9,6 +9,25 @@ html {
     padding: 1%;
 }
 
+#loginForm{
+    box-sizing: content-box;
+    margin: 0 auto;
+    width: 30%;
+    text-align: center;
+    padding: 1%;
+}
+#usernameLogin{
+    margin-bottom: 1%;
+}
+
+#signup{
+    text-align: center;
+}
+
+#loginForm input[type="submit"]{
+    margin-top: 1%;
+}
+
 input{
     font-size: 10px;
     padding: 7px;
@@ -24,6 +43,14 @@ input{
     background-color: white;
     border: 1px solid rgb(82, 82, 82);
     border-radius: 4px;
+}
+
+#budgetTitle{
+    margin-bottom: 1%;
+}
+
+#budgetSubmit{
+    margin-top: 1%;
 }
 
 .BudgetDiv{

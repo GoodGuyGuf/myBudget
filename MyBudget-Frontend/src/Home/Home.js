@@ -24,6 +24,9 @@ class Home {
             event.preventDefault();
 
             document.body.innerHTML = "";
+            User.all = []
+            Budget.all = []
+            Expense.all = []
             new App; // if the user logs out, the documents body will be set to nothing and a new App class will render.
         })
     }

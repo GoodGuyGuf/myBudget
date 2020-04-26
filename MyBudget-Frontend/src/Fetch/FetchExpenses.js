@@ -12,7 +12,7 @@ function fetchExpenses() {
         const json = await response.json()
         if (json.data && json.data.length > 0){
             const userExpenses = json.data.filter(expense => {
-                return expense.attributes.user_id === User.currentUser().id
+                return expense.attributes.user_id === User.loggedIn.id
             })
             userExpenses.forEach(expense => {
                 let obj = {id: expense.id,

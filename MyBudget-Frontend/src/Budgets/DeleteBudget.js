@@ -17,6 +17,8 @@ function deleteBudget(id){
             console.log(json)
         } else if (json.message === "Successful Deletion."){
             document.getElementById(`budget${id}`).remove()
+            const budgetCountUpdater = document.getElementById("budgetCount");
+            budgetCountUpdater.innerHTML = `Number of Budgets: ${json.budgets_count}`
         }
     }
     fetcher()

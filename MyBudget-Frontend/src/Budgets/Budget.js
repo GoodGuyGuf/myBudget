@@ -43,11 +43,12 @@ class Budget {
         this.deleteButtonDiv = document.createElement("div");
         this.deleteButtonDiv.id = "deleteButtonDiv";
         this.container.appendChild(this.deleteButtonDiv)
-        
+
         this.deleteButton = document.createElement("button");
         this.deleteButton.id = `Budgeter${this.id}DeleteButton`;
         this.deleteButton.innerHTML = "Delete Budget";
         this.deleteButtonDiv.appendChild(this.deleteButton)
+
         this.handleDelete()
     }
 

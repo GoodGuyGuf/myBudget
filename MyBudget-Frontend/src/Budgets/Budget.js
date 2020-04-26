@@ -2,13 +2,14 @@ class Budget {
 
     static all = [];
     
-    constructor({id, title, bank, user_id, expenses_total, remaining_balance}){
+    constructor({id, title, bank, user_id, expenses_total, remaining_balance, user_budgets_count}){
         this.id = parseInt(id);
         this.title = title;
         this.bank = bank;
         this.userId = user_id;
         this.expensesTotal = expenses_total
         this.remainingBalance = remaining_balance
+        this.userBudgetsCount = user_budgets_count
         Budget.all.push(this);
 
         this.container = document.createElement("div");
@@ -48,6 +49,9 @@ class Budget {
         this.deleteButton.id = `Budgeter${this.id}DeleteButton`;
         this.deleteButton.innerHTML = "Delete Budget";
         this.deleteButtonDiv.appendChild(this.deleteButton)
+
+        this.numberofBudgets = document.getElementById("budgetCount");
+        this.numberofBudgets.innerHTML = `Number of Budgets: ${this.userBudgetsCount}`;
 
         this.handleDelete()
     }

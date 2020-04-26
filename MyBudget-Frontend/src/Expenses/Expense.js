@@ -40,11 +40,5 @@ class Expense {
             }, 200); 
         }
     }
-    
-    get budgets(){
-      return Budget.all.filter(function(budget){
-          return budget.id === this.budgetId
-      }, this)
-    }
 
 }

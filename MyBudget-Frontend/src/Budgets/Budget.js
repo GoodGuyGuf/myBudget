@@ -62,14 +62,4 @@ class Budget {
         })
     }
 
-    get expenses(){
-        return Expense.all.filter(function(expense){
-            return expense.budgetId === this.id;
-        }, this)
-    }
-
-    // get remainingBalanceReducer(){
-    //     return this.expenses.reduce(function(total, element){return total - element.cost}, this.bank);
-    // }
-
 }

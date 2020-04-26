@@ -17,6 +17,19 @@ html {
     text-align: center;
 }
 
+div#deleteButtonDiv{
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+button[id^="Budgeter"]{
+    background-color: rgb(245, 245, 245);
+    outline:none;
+    border: 1px solid rgb(70, 70, 70);
+    border-radius: 4px;
+}
+
 #logout{
     margin-bottom: 1%;
 }

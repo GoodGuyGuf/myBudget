@@ -40,10 +40,13 @@ class Budget {
         this.container.appendChild(this.remainingBalanceNode)
         new ExpenseForm(this.id, this.userId)
 
+        this.deleteButtonDiv = document.createElement("div");
+        this.deleteButtonDiv.id = "deleteButtonDiv";
+        this.container.appendChild(this.deleteButtonDiv)
         this.deleteButton = document.createElement("button");
-        this.deleteButton.id = `Budgete${this.id}DeleteButton`;
+        this.deleteButton.id = `Budgeter${this.id}DeleteButton`;
         this.deleteButton.innerHTML = "Delete Budget";
-        this.container.appendChild(this.deleteButton)
+        this.deleteButtonDiv.appendChild(this.deleteButton)
         this.handleDelete()
     }
 

@@ -1,6 +1,7 @@
 class Home {
     constructor(user, num, user_id){
         this.numberOfBudgets = document.createElement("p"); // This creates the number of budgets header which shows you how many budgets you have.
+        this.numberOfBudgets.id = 'budgetCount';
         this.numberOfBudgets.innerHTML = `Number of Budgets: ${num}`;
         document.body.appendChild(this.numberOfBudgets);
 
@@ -9,7 +10,7 @@ class Home {
         this.username.innerHTML = `Username: ${user}`;
         document.body.appendChild(this.username);
 
-        this.logout = document.createElement('a'); // This generates the logout link.
+        this.logout = document.createElement('div'); // This generates the logout link.
         this.logout.id = "logout";
         this.logout.innerHTML = "<a href='Logout'>Log Out</a>";
         document.body.appendChild(this.logout);

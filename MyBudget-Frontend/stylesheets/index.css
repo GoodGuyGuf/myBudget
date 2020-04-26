@@ -9,6 +9,18 @@ html {
     padding: 1%;
 }
 
+#Logo{
+    text-align: center;
+}
+
+#budgetCount, #currentUser, #logout{
+    text-align: center;
+}
+
+#logout{
+    margin-bottom: 1%;
+}
+
 #loginForm{
     box-sizing: content-box;
     margin: 0 auto;

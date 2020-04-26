@@ -12,7 +12,7 @@ function fetchBudgets(){
     const json = await response.json()
     
     const userBudgets = json.data.filter(budget => {
-        return budget.attributes.user_id === User.currentUser().id
+        return budget.attributes.user_id === User.loggedIn.id
     })
 
     userBudgets.forEach(budget => {

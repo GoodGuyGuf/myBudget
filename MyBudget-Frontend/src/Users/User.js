@@ -1,16 +1,12 @@
 class User {
 
-    static all = []
+    static loggedIn = {}
 
     constructor({id, username}){
         this.id = parseInt(id)
         this.username = username
 
-        User.all.push(this)
-    }
-
-    static currentUser(){
-        return this.all[0]
+        User.loggedIn = {...this}
     }
 
 }

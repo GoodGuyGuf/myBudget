@@ -7,14 +7,12 @@ class BudgetForm{
 
         this.form = document.createElement("form");
         this.form.id = "budgetForm"
-        this.form.innerHTML = "<form action='http://localhost:3000/budgets' method='POST'>" +
-          "<h2>New Budget: </h2>" +
-          "<label>Title:</label>" +
-          "<input id='budgetTitle' type='text' name='budget[title]' placeholder='Title'><br/>" +
-          "<label>Total:</label>" +
-          "<input id='budgetBank' type='number' name='budget[bank]' placeholder='Budget Total'><br/>" +
-          "<input id='budgetSubmit' type='submit'>" +
-        "</form>"
+        this.form.innerHTML = `<form action='http://localhost:3000/budgets' method='POST'>
+          <h2>New Budget: </h2>
+          <input id='budgetTitle' type='text' name='budget[title]' placeholder='Title'><br/>
+          <input id='budgetBank' type='number' name='budget[bank]' placeholder='Budget Total'><br/>
+          <input id='budgetSubmit' type='submit'>
+        </form>`
 
         this.div.appendChild(this.form);
         this.budgetSubmit();

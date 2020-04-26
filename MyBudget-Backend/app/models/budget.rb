@@ -13,4 +13,8 @@ class Budget < ActiveRecord::Base
             self.bank - expenses_total
         end
     end
+
+    def user_budgets_count
+        self.user.budgets_count
+    end
 end

@@ -6,3 +6,5 @@ This file should be used to:
     the app should generate, but without generating the Login and Signup forms.
 
 */
+
+new App

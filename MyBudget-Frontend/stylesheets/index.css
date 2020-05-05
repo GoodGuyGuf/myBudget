@@ -64,18 +64,8 @@ button[id^="Budgeter"]:hover{
     text-align: center;
 }
 
-#signupButton{
-    cursor: pointer;
-}
-
 #loginForm input[type="submit"]{
     margin-top: 1%;
-    cursor: pointer;
-}
-
-#loginForm input[type="submit"]:hover{
-    background-color: aqua;
-    transition: 0.3s;
 }
 
 input{
@@ -85,6 +75,12 @@ input{
     outline:none;
     border: 1px solid rgb(70, 70, 70);
     border-radius: 4px;
+}
+
+input[type="submit"]:hover{
+    background-color: aqua;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 #budgetForm form #budgetSubmit{
@@ -132,6 +128,7 @@ div[id^="budget"]{
     border-radius: 8px;
     box-sizing: content-box;
     width: 70%;
+    padding: 2%;
 }
 
 h1[id^="BudgetTitle"]{

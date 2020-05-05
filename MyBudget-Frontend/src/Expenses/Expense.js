@@ -36,7 +36,7 @@ class Expense {
 
             this.budgetRemainingBalanceNode = document.getElementById(`Budget${this.budgetId}RemainingBalance`);
             setTimeout(() => {
-                this.budgetRemainingBalanceNode.innerHTML = `Remaining Balance: ${this.budgetRemainingBalance}`;
+                this.budgetRemainingBalanceNode.innerHTML = `Remaining Balance: $${this.budgetRemainingBalance}`;
             }, 200); 
         }
     }c

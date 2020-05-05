@@ -18,12 +18,12 @@ class Budget {
 
         this.titleNode = document.createElement("h1");
         this.titleNode.id = `BudgetTitle${id}`;
-        this.titleNode.innerHTML = `Budget for: ${title} | Balance: ${bank}`;
+        this.titleNode.innerHTML = `Budget for: ${title} | Balance: $${bank}`;
         this.container.appendChild(this.titleNode);
 
         this.remainingBalanceNode = document.createElement("p");
         this.remainingBalanceNode.id = `Budget${this.id}RemainingBalance`;
-        this.remainingBalanceNode.innerHTML = `Remaining Balance: ${this.remainingBalance}`;
+        this.remainingBalanceNode.innerHTML = `Remaining Balance: $${this.remainingBalance}`;
 
         this.table = document.createElement("table");
         this.table.id = `BudgetTable_${id}`;

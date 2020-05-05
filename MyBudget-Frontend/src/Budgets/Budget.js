@@ -31,12 +31,11 @@ class Budget {
 
         this.initialRow = document.createElement("tr")
         this.initialRow.innerHTML = 
-        "<tr>" +
-            "<th>Id</th>" +
-            "<th>Name</th>" +
-            "<th>Cost</th>" +
-            "<th>Date</th>" +
-        "</tr>"
+        `<tr>
+            <th>Name</th>
+            <th>Cost</th>
+            <th>Date</th>
+        </tr>`
         this.table.appendChild(this.initialRow)
         this.container.appendChild(this.remainingBalanceNode)
         new ExpenseForm(this.id, this.userId)

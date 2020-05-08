@@ -5,7 +5,7 @@ class App {
         this.logo.innerHTML = "<h1>myBudget</h1>";
         document.body.appendChild(this.logo);
         
-        this.app = new Login;
+        new Login;
     }
 
 }

@@ -17,7 +17,7 @@ class BudgetsController < ApplicationController
 
     def destroy
         budget = Budget.find_by_id(params[:id])
-        if budget.destroy
+        if budget.destroy && budget.expenses.each{|b| b.destroy}
             render json: {message: "Successful Deletion.", budgets_count: budget.user.budgets_count}
         else
             render json: {message: "Failed to Delete"}

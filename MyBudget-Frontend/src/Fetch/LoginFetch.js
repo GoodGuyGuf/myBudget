@@ -14,6 +14,7 @@ function loginFetch(userObject){
         const json = await response.json();
         if (json.message === "No User Found."){
             new LoginError
+            new Login
         } else {
            let userObj = {
                id: json.data.id, 

@@ -12,9 +12,9 @@ class Expense {
         this.budgetRemainingBalance = budget_remaining_balance;
         Expense.all.push(this);
         
-        if (this.id){
             this.table = document.getElementById(`BudgetTable_${this.budgetId}`);
-        
+
+        if (this.table){
             this.row = document.createElement("tr");
             this.row.id = `Expense${this.id}`;
             this.table.appendChild(this.row);
@@ -36,6 +36,6 @@ class Expense {
                 this.budgetRemainingBalanceNode.innerHTML = `Remaining Balance: $${this.budgetRemainingBalance}`;
             }, 200); 
         }
-    }c
+    }
 
 }

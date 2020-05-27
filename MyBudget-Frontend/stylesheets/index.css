@@ -154,3 +154,7 @@ th{
 tr, td{
     background-color: white;
 }
+
+form[id^="Budget_"]{
+text-align: center;
+}

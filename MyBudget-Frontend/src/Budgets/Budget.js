@@ -12,7 +12,7 @@ class Budget {
         this.userBudgetsCount = user_budgets_count
         Budget.all.push(this);
 
-        this.container = document.createElement("div");
+        this.container = document.createElement("section");
         this.container.id = `budget${id}`;
         document.body.appendChild(this.container);
 

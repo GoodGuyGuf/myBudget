@@ -9,7 +9,7 @@ class Home {
         this.sectionUserData.innerHTML = `
             <p id='budgetCount'>Number of Budgets: ${num}</p>
             <p id='currentUser'>Username: ${user}</p>
-            <a id='logout' href='Logout'>Log Out</a>
+            <button id='logout'>Log Out</button>
         `;
         document.body.appendChild(this.sectionUserData);
 
@@ -20,7 +20,7 @@ class Home {
     }
 
     handleLogout(){
-        this.logout.addEventListener("click", event => {
+        document.querySelector("#logout").addEventListener("click", event => {
             event.preventDefault();
 
             document.body.innerHTML = "";

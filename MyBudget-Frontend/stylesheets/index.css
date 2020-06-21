@@ -122,7 +122,7 @@ input[type="submit"]:hover{
     left: 20%
 }
 
-div[id^="budget"]{
+section[id^="budget"]{
    margin: 0 auto;
     border: 2px solid #999999;
     border-radius: 8px;

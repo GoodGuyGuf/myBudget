@@ -2,25 +2,24 @@ class Login {
 
     constructor(){
 
-      this.div = document.createElement("div");
-      this.div.id="LogIn";
-      document.body.appendChild(this.div);
+      this.section = document.createElement("section");
+      this.section.id="LogIn";
+      this.section.innerHTML = `
+        <form id='loginForm' action='http://localhost:3000/users' method='POST'>
+          <h2>Login</h2>
+          <input id='usernameLogin' type='text' name='user[username]' placeholder='Username'/><br />
+          <input id='passwordLogin' type='password' name='user[password]' placeholder='Password'/><br />
+          <input type='submit' name='submit' value='Submit'/>
+        </form>`;
 
-      this.form = document.createElement("form");
-      this.form.id = "loginForm";
-      this.form.innerHTML = 
-      "<form action='http://localhost:3000/users' method='POST'>" +
-          "<h2>Login</h2>" +
-          "<input id='usernameLogin' type='text' name='user[username]' placeholder='Username'/><br />" +
-          "<input id='passwordLogin' type='password' name='user[password]' placeholder='Password'/><br />" +
-          "<input type='submit' name='submit' value='Submit'/>" +
-        "</form>"
+      document.body.appendChild(this.section);
 
-      this.div.appendChild(this.form);
-
-      this.signupLink = document.createElement("div");
+      this.signupLink = document.createElement("section");
       this.signupLink.id='signup'
-      this.signupLink.innerHTML = "<h3>Don't Have An Account?</h3><button id='signupButton'>Sign up</button>"
+      this.signupLink.innerHTML = `
+        <h3>Don't Have An Account?</h3>
+        <button id='signupButton'>Sign up</button>
+      `
 
       document.body.appendChild(this.signupLink);
 
@@ -42,7 +41,7 @@ class Login {
     }
 
     logInSubmit(){
-      const loginForm = document.getElementById("loginForm");
+      const login = document.getElementById("LogIn");
       const signup = document.getElementById("signup");
 
       loginForm.addEventListener("submit", event => {
@@ -51,7 +50,7 @@ class Login {
         let pswrd = document.querySelector("#passwordLogin").value;
         let userObject = {username: name, password: pswrd};
         loginFetch(userObject); // This is where the app flows next. When the login submit button is hit, it goes to loginFetch
-        loginForm.remove() // which is in the Fetch Directory.
+        login.remove() // which is in the Fetch Directory.
         signup.remove()
       })
     }

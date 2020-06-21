@@ -24,7 +24,7 @@ class Expense {
             this.dateRow = document.createElement("td");
 
             this.nameRow.innerHTML = `<td>${this.name}</td>`;
-            this.costRow.innerHTML = `<td>${this.cost}</td>`;
+            this.costRow.innerHTML = `<td>$${this.cost}</td>`;
             this.dateRow.innerHTML = `<td>${this.date}</td>`;
 
             this.row.appendChild(this.nameRow);

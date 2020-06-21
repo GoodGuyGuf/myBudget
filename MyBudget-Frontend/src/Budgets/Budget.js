@@ -14,40 +14,32 @@ class Budget {
 
         this.container = document.createElement("section");
         this.container.id = `budget${id}`;
+        this.container.innerHTML = `
+            <div>
+                <h1 id='BudgetTitle${id}'>Budget for: ${title} | Balance: $${bank}</h1>
+                <p id='Budget${this.id}RemainingBalance'>Remaining Balance: $${this.remainingBalance}</p>
+            </div>
+            <div>
+                <table id='BudgetTable_${id}'>
+                    <tr>
+                        <th>Name</th>
+                        <th>Cost</th>
+                        <th>Date</th>
+                    </tr>
+                </table>
+            </div>
+        `
         document.body.appendChild(this.container);
 
-        this.titleNode = document.createElement("h1");
-        this.titleNode.id = `BudgetTitle${id}`;
-        this.titleNode.innerHTML = `Budget for: ${title} | Balance: $${bank}`;
-        this.container.appendChild(this.titleNode);
-
-        this.remainingBalanceNode = document.createElement("p");
-        this.remainingBalanceNode.id = `Budget${this.id}RemainingBalance`;
-        this.remainingBalanceNode.innerHTML = `Remaining Balance: $${this.remainingBalance}`;
-
-        this.table = document.createElement("table");
-        this.table.id = `BudgetTable_${id}`;
-        this.container.appendChild(this.table);
-
-        this.initialRow = document.createElement("tr")
-        this.initialRow.innerHTML = 
-        `<tr>
-            <th>Name</th>
-            <th>Cost</th>
-            <th>Date</th>
-        </tr>`
-        this.table.appendChild(this.initialRow)
-        this.container.appendChild(this.remainingBalanceNode)
         new ExpenseForm(this.id, this.userId)
 
-        this.deleteButtonDiv = document.createElement("div");
-        this.deleteButtonDiv.id = "deleteButtonDiv";
-        this.container.appendChild(this.deleteButtonDiv)
+        this.deleteButtonContainer = document.createElement("div");
+        this.container.appendChild(this.deleteButtonContainer);
 
         this.deleteButton = document.createElement("button");
         this.deleteButton.id = `Budgeter${this.id}DeleteButton`;
         this.deleteButton.innerHTML = "Delete Budget";
-        this.deleteButtonDiv.appendChild(this.deleteButton)
+        this.deleteButtonContainer.appendChild(this.deleteButton)
 
         this.numberofBudgets = document.getElementById("budgetCount");
         this.numberofBudgets.innerHTML = `Number of Budgets: ${this.userBudgetsCount}`;

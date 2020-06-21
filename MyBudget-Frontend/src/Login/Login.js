@@ -9,7 +9,7 @@ class Login {
           <h2>Login</h2>
           <input id='usernameLogin' type='text' name='user[username]' placeholder='Username'/><br />
           <input id='passwordLogin' type='password' name='user[password]' placeholder='Password'/><br />
-          <input type='submit' name='submit' value='Submit'/>
+          <button type='submit' name='submit' value='Submit'>Submit</button>
         </form>`;
 
       document.body.appendChild(this.section);

@@ -17,11 +17,14 @@ html {
     text-align: center;
 }
 
+button{
+    cursor: pointer;
+}
+
 div#deleteButtonDiv{
     text-align: center;
     margin-top: 1%;
     margin-bottom: 1%;
-    cursor: pointer;
 }
 
 button[id^="Budgeter"]{
@@ -29,7 +32,6 @@ button[id^="Budgeter"]{
     outline:none;
     border: 1px solid rgb(70, 70, 70);
     border-radius: 4px;
-    cursor: pointer;
 }
 
 button[id^="Budgeter"]:hover{
@@ -52,15 +54,7 @@ button[id^="Budgeter"]:hover{
     margin-bottom: 1%;
 }
 
-#loginDiv{
-    text-align: center;
-}
-
-#SignUp{
-    text-align: center;
-}
-
-#signup{
+#loginDiv, #SignUp, #signup, h1[id^="BudgetTitle"]{
     text-align: center;
 }
 
@@ -80,7 +74,6 @@ input{
 input[type="submit"]:hover{
     background-color: aqua;
     transition: 0.3s;
-    cursor: pointer;
 }
 
 #budgetForm form #budgetSubmit{
@@ -89,7 +82,6 @@ input[type="submit"]:hover{
     background-color: white;
     border: 1px solid rgb(82, 82, 82);
     border-radius: 4px;
-    cursor: pointer;
 }
 
 #budgetForm form #budgetSubmit:hover{
@@ -103,7 +95,6 @@ input[type="submit"]:hover{
 
 #budgetSubmit{
     margin-top: 1%;
-    cursor: pointer;
 }
 
 .BudgetDiv{

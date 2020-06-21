@@ -20,7 +20,7 @@ class ExpenseForm {
 
         <input id="hidden${this.budgetId}" type="hidden" name="expense[budget_id]" value="${this.budgetId}">
         <input id="hiddenUser${this.userId}" type="hidden" name="expense[user_id]" value="${this.userId}">
-      <input id='submit' value='Submit' type='submit'>
+      <button id='submit' value='Submit' type='submit'>Submit</button>
     </form>`
 
     this.budget.appendChild(this.form)

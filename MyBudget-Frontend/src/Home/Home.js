@@ -1,19 +1,17 @@
 class Home {
     constructor(user, num, user_id){
-        this.numberOfBudgets = document.createElement("p"); // This creates the number of budgets header which shows you how many budgets you have.
-        this.numberOfBudgets.id = 'budgetCount';
-        this.numberOfBudgets.innerHTML = `Number of Budgets: ${num}`;
-        document.body.appendChild(this.numberOfBudgets);
-
-        this.username = document.createElement("p"); // Your username appears in the top left corner from this.username
-        this.username.id ="currentUser";
-        this.username.innerHTML = `Username: ${user}`;
-        document.body.appendChild(this.username);
-
-        this.logout = document.createElement('div'); // This generates the logout link.
-        this.logout.id = "logout";
-        this.logout.innerHTML = "<a href='Logout'>Log Out</a>";
-        document.body.appendChild(this.logout);
+        /* 
+            This creates the number of budgets header which shows you how many budgets you have.
+            Your username appears in the top left corner from this.username 
+        */ 
+        this.sectionUserData = document.createElement("section");
+        this.sectionUserData.id = 'UserData';
+        this.sectionUserData.innerHTML = `
+            <p id='budgetCount'>Number of Budgets: ${num}</p>
+            <p id='currentUser'>Username: ${user}</p>
+            <a id='logout' href='Logout'>Log Out</a>
+        `;
+        document.body.appendChild(this.sectionUserData);
 
         this.budgetForm = new BudgetForm(user_id);
         fetchExpenses(); // This is where all fetch objects are created. The next parts of the application are formed because when an

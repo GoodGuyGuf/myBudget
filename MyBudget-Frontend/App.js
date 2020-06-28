@@ -39,8 +39,8 @@ If you were to write the code above by using .append() only, it would look like 
     this.logo.setAttribute("id", "Logo"); 
     this.logo.append("myBudget");
 
-    this.header.appendChild(this.logo);
-    document.body.appendChild(this.header);
+    this.header.append(this.logo);
+    document.body.append(this.header);
 
 */
 

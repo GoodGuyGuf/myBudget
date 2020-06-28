@@ -1,7 +1,6 @@
 class App {
     constructor(){
         this.header = document.createElement("header");
-        document.body.appendChild(this.header);
 
         /* .setAttribute() is another way to set an attribute on a Node Object. 
             Originally we were taught to just write: this.logo.id = "Logo"; */
@@ -15,6 +14,8 @@ class App {
 
         this.logo.appendChild(this.logoText);
         this.header.appendChild(this.logo);
+
+        document.body.appendChild(this.header);
         
         new Login;
     }

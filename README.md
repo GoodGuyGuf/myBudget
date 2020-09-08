@@ -1,24 +1,31 @@
-# README
+# Welcome to myBudget!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+myBudget is a simple single page application that lets a user sign up and keep track of their budgets and expenses.
 
-Things you may want to cover:
+This repo includes the code for both the backend and frontend of the application.
 
-* Ruby version
+## This application was built with:
 
-* System dependencies
+- **Ruby on Rails**
+- **Vanilla JavaScript**
 
-* Configuration
+# Installation
+If you would like to run this application, you will have to:
 
-* Database creation
+1. Make sure Ruby and Rails are installed on your system.
+2. Clone this repository into your terminal
+3. `cd` in to the backend directory
+4. Run `bundle install`
+5. Run `rails s`
+6. Open a new terminal
+7. `cd` into the frontend directory
+8. Run `open index.html`
 
-* Database initialization
+# Development
+This application was developed in March of 2020.
 
-* How to run the test suite
+# Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/GoodGuyGuf/myBudget This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Code of Conduct
+Everyone interacting in the myBudget project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.

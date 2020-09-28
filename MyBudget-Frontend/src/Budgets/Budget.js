@@ -34,6 +34,7 @@ class Budget {
         new ExpenseForm(this.id, this.userId)
 
         this.deleteButtonContainer = document.createElement("div");
+        this.deleteButtonContainer.className = "deleteButtonDiv";
         this.container.appendChild(this.deleteButtonContainer);
 
         this.deleteButton = document.createElement("button");

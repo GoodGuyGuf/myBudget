@@ -31,7 +31,8 @@ html {
     text-align: center;
 }
 
-.loginInput, .signupFlex:-webkit-autofill::first-line {font-size: 24px}
+.loginInput:-webkit-autofill::first-line {font-size: 24px}
+.signupFlex:-webkit-autofill::first-line {font-size: 24px}
 
 .loginInput, .signupInput{
     width: 100%;
@@ -47,8 +48,9 @@ html {
     padding: 1%;
 }
 
-button{
-    cursor: pointer;
+.deleteButtonDiv{
+    margin: 1% auto;
+    text-align: center;
 }
 
 div#deleteButtonDiv{
@@ -93,8 +95,12 @@ button:hover{
     transition: 0.3s;
 }
 
-input[type="submit"]:hover{
+input[type="submit"], button{
     cursor: pointer;
+}
+
+#UserData{
+    text-align: center;
 }
 
 #budgetForm form #budgetSubmit{
@@ -135,9 +141,10 @@ input[type="submit"]:hover{
 }
 
 section[id^="budget"]{
-   margin: 0 auto;
-    border: 2px solid #999999;
-    border-radius: 8px;
+    margin: 1% auto;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
     box-sizing: content-box;
     width: 70%;
     padding: 2%;

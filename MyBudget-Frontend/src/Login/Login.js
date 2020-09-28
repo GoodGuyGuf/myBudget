@@ -6,10 +6,23 @@ class Login {
       this.section.id="LogIn";
       this.section.innerHTML = `
         <form id='loginForm' action='http://localhost:3000/users' method='POST'>
-          <h2>Login</h2>
-          <input id='usernameLogin' type='text' name='user[username]' placeholder='Username'/><br />
-          <input id='passwordLogin' type='password' name='user[password]' placeholder='Password'/><br />
-          <button type='submit' name='submit' value='Submit'>Submit</button>
+          <div class='loginFlex'>
+            <h2>Login</h2>
+          </div>
+
+          <div class='loginFlex'>
+            <label for='usernameLogin'>Username:</label>
+            <input class='loginInput' id='usernameLogin' type='text' name='user[username]' placeholder='Username'/>
+          </div>
+
+          <div class='loginFlex'>
+            <label for='passwordLogin'>Password:</label>
+            <input class='loginInput' id='passwordLogin' type='password' name='user[password]' placeholder='Password'/>
+          </div>
+
+          <div class='loginFlex'>
+            <input class='loginInput' id='loginSubmit' type='submit' value='Submit'>
+          </div>
         </form>`;
 
       document.body.appendChild(this.section);

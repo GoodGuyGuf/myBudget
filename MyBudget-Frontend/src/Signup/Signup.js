@@ -5,17 +5,30 @@ class Signup {
       this.section.id="SignUp";
       this.section.innerHTML = `
         <form id='signupForm' action='http://localhost:3000/users' method='POST'>
-          <h2>Sign up</h2>
-          <input id='username' type='text' name='user[username]' placeholder='Username'/><br/>
-          <input id='password' type='password' name='user[password]' placeholder='Password'/><br/>
-          <input type='submit' name='submit' value='Submit'/>
+          <div class='signupFlex'>
+            <h2>Sign up</h2>
+          </div>
+
+          <div class='signupFlex'>
+          <label for='usernameSignup'>Username:</label>
+            <input class='signupInput' id='usernameSignup' type='text' name='user[username]' placeholder='Username'>
+          </div>
+
+          <div class='signupFlex'>
+            <label for='passwordSignup'>Username:</label>
+            <input class='signupInput' id='passwordSignup' type='password' name='user[password]' placeholder='Password'>
+          </div>
+
+          <div class='signupFlex'>
+            <input class='signupInput' type='submit' value='Submit'>
+          </div>
         </form>
         `;
 
       document.body.appendChild(this.section);
 
       this.loginLinkContainer = document.createElement("section");
-      this.loginLinkContainer.id = 'loginDiv'
+      this.loginLinkContainer.id = 'login'
       this.loginLinkContainer.innerHTML = `
           <h3>Already Have An Account?</h3>
           <button id='loginButton'>Log In</button>
@@ -43,7 +56,7 @@ class Signup {
         const loginButton = document.getElementById("loginButton");
         const signup = document.getElementById("SignUp");
         const signupForm = document.getElementById("signupForm");
-        const loginLinker = document.getElementById("loginDiv")
+        const loginLinker = document.getElementById("login")
   
         loginButton.addEventListener("click", () => {
             new Login

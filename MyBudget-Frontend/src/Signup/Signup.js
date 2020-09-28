@@ -15,7 +15,7 @@ class Signup {
           </div>
 
           <div class='signupFlex'>
-            <label for='passwordSignup'>Username:</label>
+            <label for='passwordSignup'>Password:</label>
             <input class='signupInput' id='passwordSignup' type='password' name='user[password]' placeholder='Password'>
           </div>
 
